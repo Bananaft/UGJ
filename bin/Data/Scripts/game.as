@@ -1,7 +1,10 @@
 Scene@ scene_;
 Node@ cameraNode;
+Node@ botCameraNode;
+Viewport@ rttViewport;
 float yaw = 0.0f; // Camera yaw angle
 float pitch = 0.0f; // Camera pitch angle
+int scanLine = 0;
 
 void Start()
 {
@@ -21,19 +24,50 @@ void Start()
     cameraNode.rotation = Quaternion( 22.5 , 45.0 , 0.0 );
     cameraNode.position = Vector3(-10,5,-10);
 
-    Node@ botCameraNode = scene_.CreateChild("botCameraNode");
+    botCameraNode = scene_.CreateChild("botCameraNode");
     botCameraNode.position = Vector3(0,2,0);
     Camera@ botCamera = botCameraNode.CreateComponent("Camera");
+    botCamera.fov = 0.375;
     
   
-    renderer.numViewports = 2;
+    //renderer.numViewports = 2;
     
   	Viewport@ mainVP = Viewport(scene_, camera);
 	renderer.viewports[0] = mainVP;
     
-    Viewport@ miniViewport = Viewport(scene_, botCameraNode.GetComponent("Camera"),
-        IntRect(graphics.width * 2 / 3, 32, graphics.width - 32, graphics.height / 3));
-    renderer.viewports[1] = miniViewport;
+    //Viewport@ miniViewport = Viewport(scene_, botCameraNode.GetComponent("Camera"),
+    //    IntRect(graphics.width * 2 / 3, 32, graphics.width - 32, graphics.height / 3));
+    //renderer.viewports[1] = miniViewport;
+    
+    
+    
+
+
+    // Create a renderable texture (1024x768, RGB format), enable bilinear filtering on it
+    Texture2D@ renderTexture = Texture2D();
+    renderTexture.SetSize(320, 240, GetRGBFormat(), TEXTURE_RENDERTARGET);
+    renderTexture.filterMode = FILTER_BILINEAR;
+    
+
+
+    // Get the texture's RenderSurface object (exists when the texture has been created in rendertarget mode)
+    // and define the viewport for rendering the second scene, similarly as how backbuffer viewports are defined
+    // to the Renderer subsystem. By default the texture viewport will be updated when the texture is visible
+    // in the main view
+    RenderSurface@ surface = renderTexture.renderSurface;
+    rttViewport = Viewport(scene_, botCameraNode.GetComponent("Camera"));
+    rttViewport.rect = IntRect(0,200,320,201);
+    
+    surface.viewports[0] = rttViewport;
+    surface.updateMode = SURFACE_UPDATEALWAYS;
+    
+    Sprite@ screen = Sprite();
+	screen.texture = renderTexture;
+	screen.size = IntVector2(640,480);
+	screen.hotSpot = IntVector2(640, 0);
+	screen.verticalAlignment = VA_TOP;
+	screen.horizontalAlignment = HA_RIGHT;
+	ui.root.AddChild(screen);
 }
 
 
@@ -91,5 +125,14 @@ void HandleKeyDown(StringHash eventType, VariantMap& eventData)
 
 void HandleUpdate(StringHash eventType, VariantMap& eventData)
 {
-        
+    if (input.keyDown[KEY_UP]) botCameraNode.position += Vector3(0,0,0.01);
+    if (input.keyDown[KEY_DOWN]) botCameraNode.position += Vector3(0,0,-0.01);
+    if (input.keyDown[KEY_LEFT]) botCameraNode.Rotate( Quaternion(-3,0,0) ); 
+    if (input.keyDown[KEY_RIGHT]) botCameraNode.Rotate( Quaternion(3,0,0) );
+    
+    rttViewport.rect = IntRect(0,scanLine,320,scanLine+1);
+    //log.Info(scanLine*(90.0/240.0));
+    botCameraNode.rotation = Quaternion(-45 + scanLine*(90.0/240.0),0,0);
+    scanLine++;
+    if (scanLine>240) scanLine=0;
 }
