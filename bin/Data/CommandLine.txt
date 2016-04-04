@@ -1,1 +1,1 @@
-Scripts/game.as -v -w
+Scripts/game.as -v -w -s
