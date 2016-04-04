@@ -128,8 +128,8 @@ void HandleKeyDown(StringHash eventType, VariantMap& eventData)
 
 void HandleUpdate(StringHash eventType, VariantMap& eventData)
 {
-    if (input.keyDown[KEY_UP]) botCameraNode.position += Vector3(0,0,0.01);
-    if (input.keyDown[KEY_DOWN]) botCameraNode.position += Vector3(0,0,-0.01);
+    if (input.keyDown[KEY_UP]) botCameraNode.position += Vector3(0,0,0.03);
+    if (input.keyDown[KEY_DOWN]) botCameraNode.position += Vector3(0,0,-0.03);
     if (input.keyDown[KEY_LEFT]) botCameraNode.Rotate( Quaternion(-3,0,0) ); 
     if (input.keyDown[KEY_RIGHT]) botCameraNode.Rotate( Quaternion(3,0,0) );
     

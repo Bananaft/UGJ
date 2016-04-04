@@ -5,10 +5,10 @@
 	<attribute name="Smoothing Constant" value="50" />
 	<attribute name="Snap Threshold" value="5" />
 	<attribute name="Elapsed Time" value="0" />
-	<attribute name="Next Replicated Node ID" value="11" />
-	<attribute name="Next Replicated Component ID" value="12" />
-	<attribute name="Next Local Node ID" value="16777221" />
-	<attribute name="Next Local Component ID" value="16777230" />
+	<attribute name="Next Replicated Node ID" value="16" />
+	<attribute name="Next Replicated Component ID" value="17" />
+	<attribute name="Next Local Node ID" value="16777229" />
+	<attribute name="Next Local Component ID" value="16777249" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="" />
 	<component type="Octree" id="1" />
@@ -20,18 +20,6 @@
 		<attribute name="Rotation" value="1 0 0 0" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables" />
-	</node>
-	<node id="2">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="Box" />
-		<attribute name="Position" value="0 -0.5 0" />
-		<attribute name="Rotation" value="1 0 0 0" />
-		<attribute name="Scale" value="20 1 20" />
-		<attribute name="Variables" />
-		<component type="StaticModel" id="3">
-			<attribute name="Model" value="Model;Models/Box.mdl" />
-			<attribute name="Material" value="Material;" />
-		</component>
 	</node>
 	<node id="16777218">
 		<attribute name="Is Enabled" value="true" />
@@ -92,7 +80,7 @@
 	<node id="7">
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="Cylinder" />
-		<attribute name="Position" value="0 1.5 8" />
+		<attribute name="Position" value="8 1.5 8" />
 		<attribute name="Rotation" value="1 0 0 0" />
 		<attribute name="Scale" value="1 4 1" />
 		<attribute name="Variables" />
@@ -158,6 +146,109 @@
 		<attribute name="Variables" />
 		<component type="Light" id="16777229">
 			<attribute name="Color" value="0.8 1 1 1" />
+			<attribute name="Light Shape Texture" value="TextureCube;" />
+		</component>
+	</node>
+	<node id="14">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="testlevel" />
+		<attribute name="Position" value="0 0 34.5" />
+		<attribute name="Rotation" value="1 0 0 0" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="StaticModel" id="15">
+			<attribute name="Model" value="Model;Models/testlevel.mdl" />
+			<attribute name="Material" value="Material;Materials/DefaultMaterial.xml" />
+		</component>
+	</node>
+	<node id="16777222">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="" />
+		<attribute name="Position" value="0.4172 0.603467 14.2612" />
+		<attribute name="Rotation" value="1 0 0 0" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="Light" id="16777242">
+			<attribute name="Color" value="1.33 0.41 0.15 1" />
+			<attribute name="Range" value="4.63" />
+			<attribute name="Light Shape Texture" value="TextureCube;" />
+		</component>
+	</node>
+	<node id="16777223">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="" />
+		<attribute name="Position" value="-0.0827999 2.10347 24.2612" />
+		<attribute name="Rotation" value="1 0 0 0" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="Light" id="16777243">
+			<attribute name="Color" value="0.8 1 1 1" />
+			<attribute name="Range" value="8.02" />
+			<attribute name="Light Shape Texture" value="TextureCube;" />
+		</component>
+	</node>
+	<node id="16777224">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="" />
+		<attribute name="Position" value="11.4172 2.10347 32.7612" />
+		<attribute name="Rotation" value="1 0 0 0" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="Light" id="16777244">
+			<attribute name="Color" value="0.8 0.57 1 1" />
+			<attribute name="Range" value="8.02" />
+			<attribute name="Light Shape Texture" value="TextureCube;" />
+		</component>
+	</node>
+	<node id="16777225">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="" />
+		<attribute name="Position" value="-0.0827999 2.10347 34.7612" />
+		<attribute name="Rotation" value="1 0 0 0" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="Light" id="16777245">
+			<attribute name="Color" value="0.14 0.37 1 1" />
+			<attribute name="Range" value="8.02" />
+			<attribute name="Light Shape Texture" value="TextureCube;" />
+		</component>
+	</node>
+	<node id="16777226">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="" />
+		<attribute name="Position" value="-0.1656 9.20694 47.5224" />
+		<attribute name="Rotation" value="1 0 0 0" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="Light" id="16777246">
+			<attribute name="Color" value="0.14 1.05 0.53 1" />
+			<attribute name="Range" value="8.02" />
+			<attribute name="Light Shape Texture" value="TextureCube;" />
+		</component>
+	</node>
+	<node id="16777227">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="" />
+		<attribute name="Position" value="-9.7484 2.81041 25.2836" />
+		<attribute name="Rotation" value="1 0 0 0" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="Light" id="16777247">
+			<attribute name="Color" value="0.7 0.3 0.34 1" />
+			<attribute name="Range" value="8.02" />
+			<attribute name="Light Shape Texture" value="TextureCube;" />
+		</component>
+	</node>
+	<node id="16777228">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="" />
+		<attribute name="Position" value="-9.7484 7.31041 39.2836" />
+		<attribute name="Rotation" value="1 0 0 0" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="Light" id="16777248">
+			<attribute name="Color" value="0.7 0.3 0.34 1" />
+			<attribute name="Range" value="8.02" />
 			<attribute name="Light Shape Texture" value="TextureCube;" />
 		</component>
 	</node>
