@@ -6,11 +6,11 @@
 	<attribute name="Rotation" value="1 0 0 0" />
 	<attribute name="Scale" value="1 1 1" />
 	<attribute name="Variables" />
-	<component type="CollisionShape" id="16777229">
+	<component type="CollisionShape" id="16777228">
 		<attribute name="Shape Type" value="Cylinder" />
 		<attribute name="Size" value="2 1.5 1" />
 	</component>
-	<component type="RigidBody" id="16777239">
+	<component type="RigidBody" id="16777229">
 		<attribute name="Physics Position" value="0 -3.2119 8.13439" />
 		<attribute name="Mass" value="6" />
 	</component>
@@ -88,9 +88,9 @@
 			</component>
 		</node>
 	</node>
-	<node id="16777225">
+	<node id="16777224">
 		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="wheel" />
+		<attribute name="Name" value="wheel1" />
 		<attribute name="Position" value="0.7 -0.7 -0.6" />
 		<attribute name="Rotation" value="-0.5 -0.5 0.5 0.5" />
 		<attribute name="Scale" value="1 1 1" />
@@ -101,9 +101,9 @@
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 	</node>
-	<node id="16777226">
+	<node id="16777225">
 		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="wheel" />
+		<attribute name="Name" value="wheel2" />
 		<attribute name="Position" value="0.7 -0.7 0.6" />
 		<attribute name="Rotation" value="-0.5 -0.5 0.5 0.5" />
 		<attribute name="Scale" value="1 1 1" />
@@ -114,9 +114,9 @@
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 	</node>
-	<node id="16777227">
+	<node id="16777226">
 		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="wheel" />
+		<attribute name="Name" value="wheel3" />
 		<attribute name="Position" value="-0.7 -0.7 0.6" />
 		<attribute name="Rotation" value="-0.5 -0.5 0.5 0.5" />
 		<attribute name="Scale" value="1 1 1" />
@@ -127,9 +127,9 @@
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 	</node>
-	<node id="16777228">
+	<node id="16777227">
 		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="wheel" />
+		<attribute name="Name" value="wheel4" />
 		<attribute name="Position" value="-0.7 -0.7 -0.6" />
 		<attribute name="Rotation" value="-0.5 -0.5 0.5 0.5" />
 		<attribute name="Scale" value="1 1 1" />
@@ -140,7 +140,7 @@
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 	</node>
-	<node id="16777224">
+	<node id="16777228">
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="camera" />
 		<attribute name="Position" value="0 0.311135 0.382143" />

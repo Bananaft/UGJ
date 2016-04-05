@@ -3,7 +3,7 @@ class bot : ScriptObject
     Array<Node> wheels = {};
 void Init()
     {
-     // Array<Node> botChld = node.GetChildren();
+      //Array<Node> botChld = node.GetChildren();
       
       
     }
