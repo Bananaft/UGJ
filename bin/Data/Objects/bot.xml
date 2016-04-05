@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<node id="16777228">
+	<attribute name="Is Enabled" value="true" />
+	<attribute name="Name" value="bot" />
+	<attribute name="Position" value="0 0 0" />
+	<attribute name="Rotation" value="1 0 0 0" />
+	<attribute name="Scale" value="1 1 1" />
+	<attribute name="Variables" />
+	<component type="RigidBody" id="16777240">
+		<attribute name="Physics Rotation" value="0.707107 0.707107 0 0" />
+		<attribute name="Physics Position" value="0 -5.96046e-008 5.96046e-008" />
+		<attribute name="Mass" value="6" />
+	</component>
+	<component type="CollisionShape" id="16777241">
+		<attribute name="Shape Type" value="Cylinder" />
+		<attribute name="Size" value="2 1.5 1" />
+		<attribute name="Offset Rotation" value="0.707107 0.707107 0 0" />
+	</component>
+	<node id="16777217">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="botmodel" />
+		<attribute name="Position" value="0 0 0" />
+		<attribute name="Rotation" value="0.707107 0.707107 0 0" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<node id="16777218">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Body" />
+			<attribute name="Position" value="0 0 -0.2" />
+			<attribute name="Rotation" value="1 0 0 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="StaticModel" id="16777229">
+				<attribute name="Model" value="Model;Models/Cylinder.mdl" />
+				<attribute name="Material" value="Material;Materials/bot.xml" />
+				<attribute name="Cast Shadows" value="true" />
+			</component>
+		</node>
+		<node id="16777223">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="" />
+			<attribute name="Position" value="0.274012 0.395231 0.224918" />
+			<attribute name="Rotation" value="0.766045 -0.642788 0 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="Light" id="16777234">
+				<attribute name="Light Type" value="Spot" />
+				<attribute name="Color" value="1.71 1.71 1.9 1" />
+				<attribute name="Range" value="6.69" />
+				<attribute name="Spot FOV" value="77.16" />
+				<attribute name="Cast Shadows" value="true" />
+				<attribute name="Shadow Resolution" value="0.125" />
+			</component>
+			<node id="16777224">
+				<attribute name="Is Enabled" value="true" />
+				<attribute name="Name" value="icosphere" />
+				<attribute name="Position" value="0 0 0" />
+				<attribute name="Rotation" value="0.996195 -0.0871558 0 0" />
+				<attribute name="Scale" value="0.1 0.1 0.1" />
+				<attribute name="Variables" />
+				<component type="StaticModel" id="16777235">
+					<attribute name="Model" value="Model;Models/icosphere.mdl" />
+					<attribute name="Material" value="Material;Materials/light.xml" />
+				</component>
+			</node>
+		</node>
+		<node id="16777225">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="icosphere" />
+			<attribute name="Position" value="0 -0.365506 0.457151" />
+			<attribute name="Rotation" value="0.996195 -0.0871558 0 0" />
+			<attribute name="Scale" value="0.1 0.1 0.1" />
+			<attribute name="Variables" />
+			<component type="StaticModel" id="16777236">
+				<attribute name="Model" value="Model;Models/icosphere.mdl" />
+				<attribute name="Material" value="Material;Materials/light_red.xml" />
+			</component>
+		</node>
+		<node id="16777226">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="" />
+			<attribute name="Position" value="0 -0.8213 0.497699" />
+			<attribute name="Rotation" value="1 0 0 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="Light" id="16777237">
+				<attribute name="Color" value="0.65 0.07 0.02 1" />
+				<attribute name="Range" value="1.02" />
+				<attribute name="Light Shape Texture" value="TextureCube;" />
+			</component>
+		</node>
+		<node id="16777227">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="camera" />
+			<attribute name="Position" value="0 0.382143 -0.311135" />
+			<attribute name="Rotation" value="1 0 0 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+		</node>
+	</node>
+	<node id="16777219">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="wheel" />
+		<attribute name="Position" value="0.7 -0.7 -0.6" />
+		<attribute name="Rotation" value="-0.5 -0.5 0.5 0.5" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="StaticModel" id="16777230">
+			<attribute name="Model" value="Model;Models/Cylinder_001.mdl" />
+			<attribute name="Material" value="Material;Materials/tire.xml" />
+			<attribute name="Cast Shadows" value="true" />
+		</component>
+	</node>
+	<node id="16777220">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="wheel" />
+		<attribute name="Position" value="0.7 -0.7 0.6" />
+		<attribute name="Rotation" value="-0.5 -0.5 0.5 0.5" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="StaticModel" id="16777231">
+			<attribute name="Model" value="Model;Models/Cylinder_001.mdl" />
+			<attribute name="Material" value="Material;Materials/tire.xml" />
+			<attribute name="Cast Shadows" value="true" />
+		</component>
+	</node>
+	<node id="16777221">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="wheel" />
+		<attribute name="Position" value="-0.7 -0.7 0.6" />
+		<attribute name="Rotation" value="-0.5 -0.5 0.5 0.5" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="StaticModel" id="16777232">
+			<attribute name="Model" value="Model;Models/Cylinder_001.mdl" />
+			<attribute name="Material" value="Material;Materials/tire.xml" />
+			<attribute name="Cast Shadows" value="true" />
+		</component>
+	</node>
+	<node id="16777222">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="wheel" />
+		<attribute name="Position" value="-0.7 -0.7 -0.6" />
+		<attribute name="Rotation" value="-0.5 -0.5 0.5 0.5" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="StaticModel" id="16777233">
+			<attribute name="Model" value="Model;Models/Cylinder_001.mdl" />
+			<attribute name="Material" value="Material;Materials/tire.xml" />
+			<attribute name="Cast Shadows" value="true" />
+		</component>
+	</node>
+</node>
