@@ -1,3 +1,5 @@
+#include "bot.as";
+
 Scene@ scene_;
 Node@ cameraNode;
 Node@ botCameraNode;
@@ -26,9 +28,16 @@ void Start()
     
     cameraNode.rotation = Quaternion( 22.5 , 45.0 , 0.0 );
     cameraNode.position = Vector3(-10,5,-10);
+    
+    //Node@ botNode = scene_.CreateChild("botNode");
+    Node@ botNode = scene_.InstantiateXML(cache.GetResource("XMLFile", "Objects/bot.xml"), Vector3(0,10,0),Quaternion(0,0,0));
+    //RigidBody@ botBody = botNode.GetComponent("RigidBody");
+    //botBody.SetTransform(Vector3(0,10,0),Quaternion(90,30,80));
+    bot@ bot = cast<bot>(botNode.CreateScriptObject(scriptFile, "bot"));
+    bot.Init();
 
-    botCameraNode = scene_.CreateChild("botCameraNode");
-    botCameraNode.position = Vector3(0,2,0);
+    botCameraNode = botNode.GetChild("camera").CreateChild("botCameraNode");
+    //botCameraNode.position = Vector3(0,2,0);
     Camera@ botCamera = botCameraNode.CreateComponent("Camera");
     botCamera.fov = botcamFov/botcamRes.y;
     
@@ -128,10 +137,10 @@ void HandleKeyDown(StringHash eventType, VariantMap& eventData)
 
 void HandleUpdate(StringHash eventType, VariantMap& eventData)
 {
-    if (input.keyDown[KEY_UP]) botCameraNode.position += Vector3(0,0,0.03);
-    if (input.keyDown[KEY_DOWN]) botCameraNode.position += Vector3(0,0,-0.03);
-    if (input.keyDown[KEY_LEFT]) botCameraNode.Rotate( Quaternion(-3,0,0) ); 
-    if (input.keyDown[KEY_RIGHT]) botCameraNode.Rotate( Quaternion(3,0,0) );
+    //if (input.keyDown[KEY_UP]) botCameraNode.position += Vector3(0,0,0.03);
+    //if (input.keyDown[KEY_DOWN]) botCameraNode.position += Vector3(0,0,-0.03);
+    //if (input.keyDown[KEY_LEFT]) botCameraNode.Rotate( Quaternion(-3,0,0) ); 
+    //if (input.keyDown[KEY_RIGHT]) botCameraNode.Rotate( Quaternion(3,0,0) );
     
     rttViewport.rect = IntRect(0,scanLine,320,scanLine+1);
     //log.Info(scanLine*(90.0/240.0));
