@@ -4,6 +4,8 @@ Scene@ scene_;
 Node@ cameraNode;
 Node@ botCameraNode;
 Viewport@ rttViewport;
+RenderSurface@ surface;
+Texture2D@ renderTexture;
 float yaw = 0.0f; // Camera yaw angle
 float pitch = 0.0f; // Camera pitch angle
 int scanLine = 0;
@@ -56,7 +58,7 @@ void Start()
 
 
     // Create a renderable texture (1024x768, RGB format), enable bilinear filtering on it
-    Texture2D@ renderTexture = Texture2D();
+    renderTexture = Texture2D();
     renderTexture.SetSize(320, 240, GetRGBFormat(), TEXTURE_RENDERTARGET);
     renderTexture.filterMode = FILTER_NEAREST;
     
@@ -66,10 +68,11 @@ void Start()
     // and define the viewport for rendering the second scene, similarly as how backbuffer viewports are defined
     // to the Renderer subsystem. By default the texture viewport will be updated when the texture is visible
     // in the main view
-    RenderSurface@ surface = renderTexture.renderSurface;
+    surface = renderTexture.renderSurface;
     rttViewport = Viewport(scene_, botCameraNode.GetComponent("Camera"));
     rttViewport.rect = IntRect(0,200,320,201);
     
+     
     surface.viewports[0] = rttViewport;
     surface.updateMode = SURFACE_UPDATEALWAYS;
     
@@ -131,6 +134,25 @@ void HandleKeyDown(StringHash eventType, VariantMap& eventData)
                 time.timeStamp.Replaced(':', '_').Replaced('.', '_').Replaced(' ', '_') + ".png");
            
         }
+     else if (key == KEY_1)
+     {
+         scanSpeed = 1;
+     }
+       else if (key == KEY_2)
+     {
+         scanSpeed = 2;
+        
+     }
+       else if (key == KEY_3)
+     {
+         scanSpeed = 3;
+       
+     }
+       else if (key == KEY_4)
+     {
+         scanSpeed = 4;
+         
+     }
 
 }
 
@@ -145,6 +167,13 @@ void HandleUpdate(StringHash eventType, VariantMap& eventData)
     rttViewport.rect = IntRect(0,scanLine,320,scanLine+1);
     //log.Info(scanLine*(90.0/240.0));
     botCameraNode.rotation = Quaternion(-1 * botcamFov/2 + scanLine*(botcamFov/botcamRes.y),0,0);
+    
     scanLine+=scanSpeed;
+        
+    if (scanSpeed>1)
+    {
+        //renderTexture.SetData(0,0,scanLine-scanSpeed,320,scanSpeed-1,);
+    }
     if (scanLine>botcamRes.y) scanLine=0;
+     
 }

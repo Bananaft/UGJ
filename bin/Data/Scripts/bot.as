@@ -78,6 +78,8 @@ void FixedUpdate(float timeStep)
         w4.Rotate(Quaternion(0,0,-5));
         
         
+        
+        
         if (contacts > 2)
         {
                 if (input.keyDown[KEY_UP]) body.ApplyForce(body.rotation * Vector3(0,0,25));
