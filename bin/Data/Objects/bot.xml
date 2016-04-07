@@ -48,7 +48,7 @@
 				<attribute name="Range" value="20" />
 				<attribute name="Spot FOV" value="53.01" />
 				<attribute name="Cast Shadows" value="true" />
-				<attribute name="Shadow Resolution" value="0.125" />
+				<attribute name="Shadow Resolution" value="0.5" />
 			</component>
 			<node id="16777221">
 				<attribute name="Is Enabled" value="true" />
