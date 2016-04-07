@@ -10,6 +10,7 @@ class bot : ScriptObject
     float suspL = 0.6;
     float suspF = 15;
     float suspCf = 10;
+    float friction = 5;
     
 void Init()
     {
@@ -23,7 +24,7 @@ void Init()
       wheelPos[3] = w4.position;
      
         RigidBody@ body = node.GetComponent("RigidBody");
-        body.linearDamping = 0.9;
+        //body.linearDamping = 0.9;
         body.angularDamping = 0.9; 
     }
     
@@ -77,8 +78,13 @@ void FixedUpdate(float timeStep)
         w3.Rotate(Quaternion(0,0,-5));
         w4.Rotate(Quaternion(0,0,-5));
         
-        
-        
+        Vector3 targetVel = Vector3(0,0,0);
+        Vector3 speedVec = body.linearVelocity;
+        speedVec = body.rotation.Inverse() * speedVec * 5;
+        speedVec.y = 0;
+		
+		
+        if (speedVec.length > 1) speedVec.Normalize();
         
         if (contacts > 2)
         {
