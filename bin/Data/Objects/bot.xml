@@ -38,7 +38,7 @@
 		</node>
 		<node id="16777220">
 			<attribute name="Is Enabled" value="true" />
-			<attribute name="Name" value="" />
+			<attribute name="Name" value="headlight" />
 			<attribute name="Position" value="0.436751 0.395231 0.224878" />
 			<attribute name="Rotation" value="0.766045 -0.642788 0 0" />
 			<attribute name="Scale" value="1 1 1" />
@@ -53,7 +53,7 @@
 			</component>
 			<node id="16777221">
 				<attribute name="Is Enabled" value="true" />
-				<attribute name="Name" value="icosphere" />
+				<attribute name="Name" value="headlight_mesh" />
 				<attribute name="Position" value="-0.173895 1.19209e-007 5.72205e-006" />
 				<attribute name="Rotation" value="0.996195 -0.0871558 0 0" />
 				<attribute name="Scale" value="0.1 0.1 0.1" />

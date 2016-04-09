@@ -11,7 +11,8 @@ class bot : ScriptObject
     float suspF = 20;
     float suspCf = 11;
     float friction = 15;
-
+	
+	bool headlight = true;
 void Init()
     {
       w1 = node.GetChild("wheel1");
@@ -26,12 +27,34 @@ void Init()
         RigidBody@ body = node.GetComponent("RigidBody");
         body.linearDamping = 0.4;
         body.angularDamping = 0.96;
+		SubscribeToEvent("KeyDown", "HandleKeyDown");
     }
 
 void Update(float timeStep)
 	{
 
     }
+	
+void HandleKeyDown(StringHash eventType, VariantMap& eventData)
+	{
+		int key = eventData["Key"].GetInt();
+		if (key==KEY_F)
+		{
+				Node@ HLNode = node.GetChild("headlight",true);
+				Node@ HLmesh = HLNode.GetChild("headlight_mesh", false);
+				Light@ HL = HLNode.GetComponent("Light");
+				if (headlight)
+				{
+					HL.enabled = false;
+					HLmesh.enabled = false;
+					headlight = false;
+				} else {
+					HL.enabled = true;
+					HLmesh.enabled = true;
+					headlight = true;
+				}
+		}
+	}
 
 void FixedUpdate(float timeStep)
 	{
@@ -78,8 +101,8 @@ void FixedUpdate(float timeStep)
         speedVec = body.rotation.Inverse() * speedVec;
         speedVec.y = 0;
 		
-		if (input.keyDown[KEY_UP]) targetVel.z=1.2;
-        if (input.keyDown[KEY_DOWN]) targetVel.z=-1.2;
+		if (input.keyDown[KEY_UP] or input.keyDown[KEY_W]) targetVel.z=1.2;
+        if (input.keyDown[KEY_DOWN] or input.keyDown[KEY_S]) targetVel.z=-1.2;
 	
 		if (speedVec.length > 1) speedVec.Normalize();
 		
@@ -96,10 +119,13 @@ void FixedUpdate(float timeStep)
         if (contacts > 2)
         {
                
-                if (input.keyDown[KEY_LEFT]) body.ApplyTorque(body.rotation * Vector3(0,-12,0));
-                if (input.keyDown[KEY_RIGHT])  body.ApplyTorque(body.rotation * Vector3(0,12,0));
+                if (input.keyDown[KEY_LEFT] or input.keyDown[KEY_A]) body.ApplyTorque(body.rotation * Vector3(0,-12,0));
+                if (input.keyDown[KEY_RIGHT] or input.keyDown[KEY_D])  body.ApplyTorque(body.rotation * Vector3(0,12,0));
 				
 		}
+		
+
+
 	
     }
 

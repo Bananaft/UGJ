@@ -47,7 +47,7 @@ void Start()
     //botCameraNode.position = Vector3(0,2,0);
     Camera@ botCamera = botCameraNode.CreateComponent("Camera");
     botCamera.fov = botcamFov/botcamRes.y;
-    
+    audio.listener = botCameraNode.CreateComponent("SoundListener");
   
     renderer.numViewports = 2;
     
