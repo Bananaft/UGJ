@@ -2,8 +2,10 @@
 
 Scene@ scene_;
 Node@ cameraNode;
+float camDistance = 70;
 Node@ botCameraNode;
 Viewport@ rttViewport;
+Viewport@ dummyVP;
 RenderSurface@ surface;
 Texture2D@ renderTexture;
 float yaw = 0.0f; // Camera yaw angle
@@ -23,13 +25,16 @@ void Start()
     SubscribeToEvent("Update", "HandleUpdate");
     
 	scene_.LoadXML(cache.GetFile("Scenes/test_scene.xml"));
-
+	
 	cameraNode = Node();
-    Camera@ camera = cameraNode.CreateComponent("Camera");
-    camera.orthographic=true;
+	Node@ camNode = cameraNode.CreateChild("camNode");
+    Camera@ camera = camNode.CreateComponent("Camera");
+    //camera.orthographic=true;
+	camera.fov = 20;
+	camera.farClip = 10000;
     
-    cameraNode.rotation = Quaternion( 22.5 , 45.0 , 0.0 );
-    cameraNode.position = Vector3(-10,5,-10);
+    cameraNode.rotation = Quaternion( 22.5 , -45.0 , 0.0 );
+    camNode.position = Vector3(0.1 * camDistance,0,-1 * camDistance);
     
     //Node@ botNode = scene_.CreateChild("botNode");
     Node@ botNode = scene_.InstantiateXML(cache.GetResource("XMLFile", "Objects/bot.xml"), Vector3(0,10,0),Quaternion(0,0,0));
@@ -44,14 +49,14 @@ void Start()
     botCamera.fov = botcamFov/botcamRes.y;
     
   
-    //renderer.numViewports = 2;
+    renderer.numViewports = 2;
     
   	Viewport@ mainVP = Viewport(scene_, camera);
 	renderer.viewports[0] = mainVP;
     
-    //Viewport@ miniViewport = Viewport(scene_, botCameraNode.GetComponent("Camera"),
-    //    IntRect(graphics.width * 2 / 3, 32, graphics.width - 32, graphics.height / 3));
-    //renderer.viewports[1] = miniViewport;
+    Viewport@ miniViewport = Viewport(scene_, botCameraNode.GetComponent("Camera"),
+        IntRect(graphics.width * 2 / 3, 32, graphics.width - 32, graphics.height / 3));
+    renderer.viewports[1] = miniViewport;
     
     
     
@@ -70,9 +75,9 @@ void Start()
     // in the main view
     surface = renderTexture.renderSurface;
     rttViewport = Viewport(scene_, botCameraNode.GetComponent("Camera"));
-    rttViewport.rect = IntRect(0,200,320,201);
+    //rttViewport.rect = IntRect(0,200,320,201);
     
-     
+    surface.numViewports = 2; 
     surface.viewports[0] = rttViewport;
     surface.updateMode = SURFACE_UPDATEALWAYS;
     
@@ -83,6 +88,14 @@ void Start()
 	screen.verticalAlignment = VA_TOP;
 	screen.horizontalAlignment = HA_RIGHT;
 	ui.root.AddChild(screen);
+	
+	Scene@ dummyScene_ = Scene();
+	dummyScene_.LoadXML(cache.GetFile("Scenes/dummy.xml"));
+	Node@ dummyNode = scene_.CreateChild("Camera");
+	Camera@ dummyCam = dummyNode.CreateComponent("Camera");
+	dummyVP = Viewport(scene_, dummyCam);
+	surface.viewports[1] = dummyVP;
+	dummyVP.rect = IntRect(0,0,200,200);
 }
 
 
@@ -159,15 +172,20 @@ void HandleKeyDown(StringHash eventType, VariantMap& eventData)
 
 void HandleUpdate(StringHash eventType, VariantMap& eventData)
 {
-    //if (input.keyDown[KEY_UP]) botCameraNode.position += Vector3(0,0,0.03);
-    //if (input.keyDown[KEY_DOWN]) botCameraNode.position += Vector3(0,0,-0.03);
-    //if (input.keyDown[KEY_LEFT]) botCameraNode.Rotate( Quaternion(-3,0,0) ); 
-    //if (input.keyDown[KEY_RIGHT]) botCameraNode.Rotate( Quaternion(3,0,0) );
-    
+
+    cameraNode.position = botCameraNode.worldPosition;
+	
+	
     rttViewport.rect = IntRect(0,scanLine,320,scanLine+1);
     //log.Info(scanLine*(90.0/240.0));
     botCameraNode.rotation = Quaternion(-1 * botcamFov/2 + scanLine*(botcamFov/botcamRes.y),0,0);
-    
+	
+	//if (scanSpeed>1)
+	//{
+	//	dummyVP.rect = IntRect(0,scanLine-scanSpeed,320,scanLine+1-scanSpeed);
+	//}
+	
+	
     scanLine+=scanSpeed;
         
     if (scanSpeed>1)
