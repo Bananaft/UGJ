@@ -89,13 +89,14 @@ void Start()
 	screen.horizontalAlignment = HA_RIGHT;
 	ui.root.AddChild(screen);
 	
-	Scene@ dummyScene_ = Scene();
-	dummyScene_.LoadXML(cache.GetFile("Scenes/dummy.xml"));
+
 	Node@ dummyNode = scene_.CreateChild("Camera");
 	Camera@ dummyCam = dummyNode.CreateComponent("Camera");
+	dummyCam.farClip=0.5;
+	dummyNode.position = Vector3(0,-10000,0);
 	dummyVP = Viewport(scene_, dummyCam);
 	surface.viewports[1] = dummyVP;
-	dummyVP.rect = IntRect(0,0,200,200);
+	dummyVP.rect = IntRect(0,0,0,0);
 }
 
 
@@ -180,10 +181,12 @@ void HandleUpdate(StringHash eventType, VariantMap& eventData)
     //log.Info(scanLine*(90.0/240.0));
     botCameraNode.rotation = Quaternion(-1 * botcamFov/2 + scanLine*(botcamFov/botcamRes.y),0,0);
 	
-	//if (scanSpeed>1)
-	//{
-	//	dummyVP.rect = IntRect(0,scanLine-scanSpeed,320,scanLine+1-scanSpeed);
-	//}
+	if (scanSpeed>1)
+	{
+		dummyVP.rect = IntRect(0,scanLine-(scanSpeed-1),320,scanLine);
+	} else {
+		dummyVP.rect = IntRect(0,0,1,1);
+	}
 	
 	
     scanLine+=scanSpeed;

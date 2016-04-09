@@ -9,6 +9,7 @@
 	<component type="CollisionShape" id="16777228">
 		<attribute name="Shape Type" value="Cylinder" />
 		<attribute name="Size" value="2 1.5 1" />
+		<attribute name="Offset Position" value="0 1 0" />
 	</component>
 	<component type="RigidBody" id="16777229">
 		<attribute name="Physics Position" value="0 -3.2119 8.13439" />
@@ -18,7 +19,7 @@
 	<node id="16777218">
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="botmodel" />
-		<attribute name="Position" value="0 0 0" />
+		<attribute name="Position" value="0 1 0" />
 		<attribute name="Rotation" value="0.707107 0.707107 0 0" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables" />
@@ -92,7 +93,7 @@
 	<node id="16777224">
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="wheel1" />
-		<attribute name="Position" value="0.7 -0.7 -0.6" />
+		<attribute name="Position" value="0.7 0.3 -0.6" />
 		<attribute name="Rotation" value="-0.5 -0.5 0.5 0.5" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables" />
@@ -105,7 +106,7 @@
 	<node id="16777225">
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="wheel2" />
-		<attribute name="Position" value="0.7 -0.7 0.6" />
+		<attribute name="Position" value="0.7 0.3 0.6" />
 		<attribute name="Rotation" value="-0.5 -0.5 0.5 0.5" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables" />
@@ -118,7 +119,7 @@
 	<node id="16777226">
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="wheel3" />
-		<attribute name="Position" value="-0.7 -0.7 0.6" />
+		<attribute name="Position" value="-0.7 0.3 0.6" />
 		<attribute name="Rotation" value="-0.5 -0.5 0.5 0.5" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables" />
@@ -131,7 +132,7 @@
 	<node id="16777227">
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="wheel4" />
-		<attribute name="Position" value="-0.7 -0.7 -0.6" />
+		<attribute name="Position" value="-0.7 0.3 -0.6" />
 		<attribute name="Rotation" value="-0.5 -0.5 0.5 0.5" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables" />

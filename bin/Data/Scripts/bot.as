@@ -25,7 +25,7 @@ void Init()
 
         RigidBody@ body = node.GetComponent("RigidBody");
         body.linearDamping = 0.4;
-        body.angularDamping = 0.99;
+        body.angularDamping = 0.96;
     }
 
 void Update(float timeStep)
@@ -44,32 +44,32 @@ void FixedUpdate(float timeStep)
         PhysicsRaycastResult result4 = scene_.physicsWorld.RaycastSingle(Ray(node.rotation * wheelPos[3] + node.position, vecDir),suspL,1);
 
         uint contacts = 0;
-
-		if (result1.body !is null)
+	// and result1.normal.DotProduct(body.rotation * Vector3(0,1,0)) > 0.9
+		if (result1.body !is null) 
         {
-          w1.position = wheelPos[0] + Vector3(0,-0.3 + suspL + (-1 * result1.distance),0);
-          body.ApplyForce(body.rotation * Vector3(0,suspCf + suspF * (suspL - result1.distance),0), wheelPos[0]);
+		w1.position = wheelPos[0] + Vector3(0,-0.3 + suspL + (-1 * result1.distance),0);
+          body.ApplyForce(body.rotation * Vector3(0,suspCf + suspF * (suspL - result1.distance),0), result1.position -  body.position);
           contacts++;
         } else {w1.position = wheelPos[0] + Vector3(0,-0.3,0);}
 
         if (result2.body !is null)
         {
           w2.position = wheelPos[1] + Vector3(0,-0.3 + suspL + (-1 * result2.distance),0);
-          body.ApplyForce(body.rotation * Vector3(0,suspCf + suspF * (suspL - result2.distance),0), wheelPos[1]);
+          body.ApplyForce(body.rotation * Vector3(0,suspCf + suspF * (suspL - result2.distance),0), result2.position -  body.position);
           contacts++;
         } else {w2.position = wheelPos[1] + Vector3(0,-0.3,0);}
 
         if (result3.body !is null)
         {
           w3.position = wheelPos[2] + Vector3(0,-0.3 + suspL + (-1 * result3.distance),0);
-          body.ApplyForce(body.rotation * Vector3(0,suspCf + suspF * (suspL - result3.distance),0), wheelPos[2]);
+          body.ApplyForce(body.rotation * Vector3(0,suspCf + suspF * (suspL - result3.distance),0), result3.position -  body.position);
           contacts++;
         } else {w3.position = wheelPos[2] + Vector3(0,-0.3,0);}
 
         if (result4.body !is null)
         {
           w4.position = wheelPos[3] + Vector3(0,-0.3 + suspL + (-1 * result4.distance),0);
-          body.ApplyForce(body.rotation * Vector3(0,suspCf + suspF * (suspL - result4.distance),0), wheelPos[3]);
+          body.ApplyForce(body.rotation * Vector3(0,suspCf + suspF * (suspL - result4.distance),0), result4.position -  body.position);
           contacts++;
         } else {w4.position = wheelPos[3] + Vector3(0,-0.3,0);}
 
