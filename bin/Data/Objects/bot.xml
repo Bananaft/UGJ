@@ -46,6 +46,7 @@
 			<component type="Light" id="16777231">
 				<attribute name="Light Type" value="Spot" />
 				<attribute name="Color" value="0.9 0.9 1 1" />
+				<attribute name="Brightness Multiplier" value="3" />
 				<attribute name="Range" value="20" />
 				<attribute name="Spot FOV" value="53.01" />
 				<attribute name="Cast Shadows" value="true" />
