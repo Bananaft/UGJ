@@ -1,1 +1,1 @@
-Materials/DefaultMaterial.xml
+Materials/JoinedMaterial_#13.xml

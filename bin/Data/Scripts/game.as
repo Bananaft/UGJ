@@ -37,7 +37,7 @@ void Start()
     camNode.position = Vector3(0.1 * camDistance,0,-1 * camDistance);
     
     //Node@ botNode = scene_.CreateChild("botNode");
-    Node@ botNode = scene_.InstantiateXML(cache.GetResource("XMLFile", "Objects/bot.xml"), Vector3(0,10,0),Quaternion(0,0,0));
+    Node@ botNode = scene_.InstantiateXML(cache.GetResource("XMLFile", "Objects/bot.xml"), Vector3(0,10,-50),Quaternion(0,0,0));
     //RigidBody@ botBody = botNode.GetComponent("RigidBody");
     //botBody.SetTransform(Vector3(0,10,0),Quaternion(90,30,80));
     bot@ bot = cast<bot>(botNode.CreateScriptObject(scriptFile, "bot"));
