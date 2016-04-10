@@ -6,7 +6,7 @@
 	<attribute name="Snap Threshold" value="5" />
 	<attribute name="Elapsed Time" value="0" />
 	<attribute name="Next Replicated Node ID" value="27" />
-	<attribute name="Next Replicated Component ID" value="51" />
+	<attribute name="Next Replicated Component ID" value="53" />
 	<attribute name="Next Local Node ID" value="16777217" />
 	<attribute name="Next Local Component ID" value="16777228" />
 	<attribute name="Variables" />
@@ -43,7 +43,8 @@
 			<attribute name="Variables" />
 			<component type="StaticModel" id="5">
 				<attribute name="Model" value="Model;Models/l1_building.mdl" />
-				<attribute name="Material" value="Material;Materials/JoinedMaterial_#13.xml" />
+				<attribute name="Material" value="Material;Materials/Brick_int.xml" />
+				<attribute name="Cast Shadows" value="true" />
 			</component>
 			<component type="CollisionShape" id="31">
 				<attribute name="Shape Type" value="TriangleMesh" />
@@ -63,6 +64,7 @@
 			<component type="StaticModel" id="6">
 				<attribute name="Model" value="Model;Models/l1_ground.mdl" />
 				<attribute name="Material" value="Material;Materials/JoinedMaterial_#13.xml" />
+				<attribute name="Cast Shadows" value="true" />
 			</component>
 			<component type="RigidBody" id="26">
 				<attribute name="Physics Rotation" value="0.707107 0.707107 0 0" />
@@ -73,26 +75,6 @@
 				<attribute name="Model" value="Model;Models/l1_ground.mdl" />
 			</component>
 		</node>
-		<node id="6">
-			<attribute name="Is Enabled" value="true" />
-			<attribute name="Name" value="Sun" />
-			<attribute name="Position" value="-9.66777 4.97679 -21.9717" />
-			<attribute name="Rotation" value="0.93047 0.0245451 -0.159172 0.329071" />
-			<attribute name="Scale" value="1 1 1" />
-			<attribute name="Variables" />
-			<node id="25">
-				<attribute name="Is Enabled" value="true" />
-				<attribute name="Name" value="LightAdjust" />
-				<attribute name="Position" value="0 0 0" />
-				<attribute name="Rotation" value="-4.37114e-008 0 -1 0" />
-				<attribute name="Scale" value="1 1 1" />
-				<attribute name="Variables" />
-				<component type="Light" id="24">
-					<attribute name="Light Type" value="Directional" />
-					<attribute name="Color" value="0.923236 1 0.441422 1" />
-				</component>
-			</node>
-		</node>
 		<node id="7">
 			<attribute name="Is Enabled" value="true" />
 			<attribute name="Name" value="l1_building_002" />
@@ -102,7 +84,16 @@
 			<attribute name="Variables" />
 			<component type="StaticModel" id="7">
 				<attribute name="Model" value="Model;Models/l1_building_002.mdl" />
-				<attribute name="Material" value="Material;Materials/JoinedMaterial_#13.xml" />
+				<attribute name="Material" value="Material;Materials/Brick_ext.xml" />
+				<attribute name="Cast Shadows" value="true" />
+			</component>
+			<component type="CollisionShape" id="51">
+				<attribute name="Shape Type" value="TriangleMesh" />
+				<attribute name="Model" value="Model;Models/l1_building_002.mdl" />
+			</component>
+			<component type="RigidBody" id="52">
+				<attribute name="Physics Rotation" value="0.707107 0.707107 0 0" />
+				<attribute name="Physics Position" value="0 7.14785 4.26045e-006" />
 			</component>
 			<node id="8">
 				<attribute name="Is Enabled" value="true" />
@@ -113,7 +104,8 @@
 				<attribute name="Variables" />
 				<component type="StaticModel" id="8">
 					<attribute name="Model" value="Model;Models/l1_building_004.mdl" />
-					<attribute name="Material" value="Material;Materials/JoinedMaterial_#13.xml" />
+					<attribute name="Material" value="Material;Materials/cell_1.xml" />
+					<attribute name="Cast Shadows" value="true" />
 				</component>
 			</node>
 			<node id="9">
@@ -125,7 +117,8 @@
 				<attribute name="Variables" />
 				<component type="StaticModel" id="9">
 					<attribute name="Model" value="Model;Models/l1_building_011.mdl" />
-					<attribute name="Material" value="Material;Materials/JoinedMaterial_#13.xml" />
+					<attribute name="Material" value="Material;Materials/eye_cell.xml" />
+					<attribute name="Cast Shadows" value="true" />
 				</component>
 			</node>
 			<node id="10">
@@ -137,7 +130,8 @@
 				<attribute name="Variables" />
 				<component type="StaticModel" id="10">
 					<attribute name="Model" value="Model;Models/l1_building_012.mdl" />
-					<attribute name="Material" value="Material;Materials/JoinedMaterial_#13.xml" />
+					<attribute name="Material" value="Material;Materials/coppercell.xml" />
+					<attribute name="Cast Shadows" value="true" />
 				</component>
 			</node>
 			<node id="11">
@@ -150,6 +144,7 @@
 				<component type="StaticModel" id="11">
 					<attribute name="Model" value="Model;Models/l1_building_015.mdl" />
 					<attribute name="Material" value="Material;Materials/JoinedMaterial_#13.xml" />
+					<attribute name="Cast Shadows" value="true" />
 				</component>
 			</node>
 		</node>
@@ -162,7 +157,8 @@
 			<attribute name="Variables" />
 			<component type="StaticModel" id="12">
 				<attribute name="Model" value="Model;Models/l1_building_003.mdl" />
-				<attribute name="Material" value="Material;Materials/JoinedMaterial_#13.xml" />
+				<attribute name="Material" value="Material;Materials/Brick_ext.xml" />
+				<attribute name="Cast Shadows" value="true" />
 			</component>
 			<component type="CollisionShape" id="32">
 				<attribute name="Shape Type" value="TriangleMesh" />
@@ -182,7 +178,8 @@
 			<attribute name="Variables" />
 			<component type="StaticModel" id="13">
 				<attribute name="Model" value="Model;Models/l1_building_001.mdl" />
-				<attribute name="Material" value="Material;Materials/JoinedMaterial_#13.xml" />
+				<attribute name="Material" value="Material;Materials/floor_1.xml" />
+				<attribute name="Cast Shadows" value="true" />
 			</component>
 			<component type="CollisionShape" id="33">
 				<attribute name="Shape Type" value="TriangleMesh" />
@@ -201,7 +198,8 @@
 			<attribute name="Variables" />
 			<component type="StaticModel" id="14">
 				<attribute name="Model" value="Model;Models/l1_building_005.mdl" />
-				<attribute name="Material" value="Material;Materials/JoinedMaterial_#13.xml" />
+				<attribute name="Material" value="Material;Materials/funkywall.xml" />
+				<attribute name="Cast Shadows" value="true" />
 			</component>
 			<component type="CollisionShape" id="34">
 				<attribute name="Shape Type" value="TriangleMesh" />
@@ -220,7 +218,8 @@
 			<attribute name="Variables" />
 			<component type="StaticModel" id="15">
 				<attribute name="Model" value="Model;Models/l1_building_006.mdl" />
-				<attribute name="Material" value="Material;Materials/JoinedMaterial_#13.xml" />
+				<attribute name="Material" value="Material;Materials/funkyfloor.xml" />
+				<attribute name="Cast Shadows" value="true" />
 			</component>
 			<component type="CollisionShape" id="35">
 				<attribute name="Shape Type" value="TriangleMesh" />
@@ -229,26 +228,6 @@
 			<component type="RigidBody" id="45">
 				<attribute name="Physics Rotation" value="0.707107 0.707107 0 0" />
 			</component>
-		</node>
-		<node id="16">
-			<attribute name="Is Enabled" value="true" />
-			<attribute name="Name" value="Sun_001" />
-			<attribute name="Position" value="-26.6581 6.87156 -23.2733" />
-			<attribute name="Rotation" value="-0.103217 0.623044 0.721481 0.28395" />
-			<attribute name="Scale" value="1 1 1" />
-			<attribute name="Variables" />
-			<node id="26">
-				<attribute name="Is Enabled" value="true" />
-				<attribute name="Name" value="LightAdjust" />
-				<attribute name="Position" value="0 0 0" />
-				<attribute name="Rotation" value="-4.37114e-008 0 -1 0" />
-				<attribute name="Scale" value="1 1 1" />
-				<attribute name="Variables" />
-				<component type="Light" id="25">
-					<attribute name="Light Type" value="Directional" />
-					<attribute name="Color" value="0.725581 0.789402 1 1" />
-				</component>
-			</node>
 		</node>
 		<node id="17">
 			<attribute name="Is Enabled" value="true" />
@@ -259,7 +238,8 @@
 			<attribute name="Variables" />
 			<component type="StaticModel" id="16">
 				<attribute name="Model" value="Model;Models/l1_building_007.mdl" />
-				<attribute name="Material" value="Material;Materials/JoinedMaterial_#13.xml" />
+				<attribute name="Material" value="Material;Materials/fancyfloor.xml" />
+				<attribute name="Cast Shadows" value="true" />
 			</component>
 			<component type="CollisionShape" id="36">
 				<attribute name="Shape Type" value="TriangleMesh" />
@@ -278,7 +258,8 @@
 			<attribute name="Variables" />
 			<component type="StaticModel" id="17">
 				<attribute name="Model" value="Model;Models/l1_building_008.mdl" />
-				<attribute name="Material" value="Material;Materials/JoinedMaterial_#13.xml" />
+				<attribute name="Material" value="Material;Materials/mt_floor.xml" />
+				<attribute name="Cast Shadows" value="true" />
 			</component>
 			<component type="CollisionShape" id="37">
 				<attribute name="Shape Type" value="TriangleMesh" />
@@ -297,7 +278,8 @@
 			<attribute name="Variables" />
 			<component type="StaticModel" id="18">
 				<attribute name="Model" value="Model;Models/l1_building_009.mdl" />
-				<attribute name="Material" value="Material;Materials/JoinedMaterial_#13.xml" />
+				<attribute name="Material" value="Material;Materials/mt_wall.xml" />
+				<attribute name="Cast Shadows" value="true" />
 			</component>
 			<component type="CollisionShape" id="38">
 				<attribute name="Shape Type" value="TriangleMesh" />
@@ -316,7 +298,8 @@
 			<attribute name="Variables" />
 			<component type="StaticModel" id="19">
 				<attribute name="Model" value="Model;Models/l1_building_010.mdl" />
-				<attribute name="Material" value="Material;Materials/JoinedMaterial_#13.xml" />
+				<attribute name="Material" value="Material;Materials/heackel.xml" />
+				<attribute name="Cast Shadows" value="true" />
 			</component>
 			<component type="CollisionShape" id="39">
 				<attribute name="Shape Type" value="TriangleMesh" />
@@ -335,7 +318,8 @@
 			<attribute name="Variables" />
 			<component type="StaticModel" id="20">
 				<attribute name="Model" value="Model;Models/poles.mdl" />
-				<attribute name="Material" value="Material;Materials/JoinedMaterial_#13.xml" />
+				<attribute name="Material" value="Material;Materials/heackel.xml" />
+				<attribute name="Cast Shadows" value="true" />
 			</component>
 			<component type="CollisionShape" id="40">
 				<attribute name="Shape Type" value="TriangleMesh" />
@@ -355,7 +339,8 @@
 			<attribute name="Variables" />
 			<component type="StaticModel" id="21">
 				<attribute name="Model" value="Model;Models/l1_building_013.mdl" />
-				<attribute name="Material" value="Material;Materials/JoinedMaterial_#13.xml" />
+				<attribute name="Material" value="Material;Materials/Brick_int.xml" />
+				<attribute name="Cast Shadows" value="true" />
 			</component>
 		</node>
 		<node id="23">
@@ -367,7 +352,8 @@
 			<attribute name="Variables" />
 			<component type="StaticModel" id="22">
 				<attribute name="Model" value="Model;Models/Circle_014.mdl" />
-				<attribute name="Material" value="Material;Materials/JoinedMaterial_#13.xml" />
+				<attribute name="Material" value="Material;Materials/Brick_int.xml" />
+				<attribute name="Cast Shadows" value="true" />
 			</component>
 		</node>
 		<node id="24">
@@ -379,7 +365,48 @@
 			<attribute name="Variables" />
 			<component type="StaticModel" id="23">
 				<attribute name="Model" value="Model;Models/l1_building_014.mdl" />
-				<attribute name="Material" value="Material;Materials/JoinedMaterial_#13.xml" />
+				<attribute name="Material" value="Material;Materials/heackel.xml" />
+				<attribute name="Cast Shadows" value="true" />
+			</component>
+		</node>
+	</node>
+	<node id="16">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="Sun_001" />
+		<attribute name="Position" value="-26.6581 23.2733 6.87158" />
+		<attribute name="Rotation" value="0.513544 -0.367573 -0.309381 -0.710947" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<node id="26">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="LightAdjust" />
+			<attribute name="Position" value="0 0 0" />
+			<attribute name="Rotation" value="-4.37114e-008 0 -1 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="Light" id="25">
+				<attribute name="Light Type" value="Directional" />
+				<attribute name="Color" value="0.725581 0.789402 1 1" />
+			</component>
+		</node>
+	</node>
+	<node id="6">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="Sun" />
+		<attribute name="Position" value="-9.66777 21.9717 4.97681" />
+		<attribute name="Rotation" value="0.814003 0.451415 -0.293136 0.218392" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<node id="25">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="LightAdjust" />
+			<attribute name="Position" value="0 -2.38419e-007 0" />
+			<attribute name="Rotation" value="0.0270521 0.0122154 -0.999047 0.0319611" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="Light" id="24">
+				<attribute name="Light Type" value="Directional" />
+				<attribute name="Color" value="0.923236 1 0.441422 1" />
 			</component>
 		</node>
 	</node>
