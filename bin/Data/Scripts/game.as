@@ -2,7 +2,7 @@
 
 Scene@ scene_;
 Node@ cameraNode;
-float camDistance = 70;
+float camDistance = 120;
 Node@ botCameraNode;
 Viewport@ rttViewport;
 Viewport@ dummyVP;
@@ -32,9 +32,12 @@ void Start()
     //camera.orthographic=true;
 	camera.fov = 20;
 	camera.farClip = 10000;
+	
+	
     
     cameraNode.rotation = Quaternion( 22.5 , -45.0 , 0.0 );
     camNode.position = Vector3(0.1 * camDistance,0,-1 * camDistance);
+	cameraNode.position = Vector3(-10,0,-10);
     
     //Node@ botNode = scene_.CreateChild("botNode");
     Node@ botNode = scene_.InstantiateXML(cache.GetResource("XMLFile", "Objects/bot.xml"), Vector3(0,0.0,-50),Quaternion(0,0,0));
@@ -52,6 +55,8 @@ void Start()
     renderer.numViewports = 2;
     
   	Viewport@ mainVP = Viewport(scene_, camera);
+	
+	
 	renderer.viewports[0] = mainVP;
     
     Viewport@ miniViewport = Viewport(scene_, botCameraNode.GetComponent("Camera"),
@@ -97,6 +102,9 @@ void Start()
 	dummyVP = Viewport(scene_, dummyCam);
 	surface.viewports[1] = dummyVP;
 	dummyVP.rect = IntRect(0,0,0,0);
+	
+	renderer.textureFilterMode = FILTER_ANISOTROPIC;
+	renderer.textureAnisotropy = 16;
 }
 
 
@@ -174,7 +182,7 @@ void HandleKeyDown(StringHash eventType, VariantMap& eventData)
 void HandleUpdate(StringHash eventType, VariantMap& eventData)
 {
 
-    cameraNode.position = botCameraNode.worldPosition;
+	//cameraNode.position = botCameraNode.worldPosition;
 	
 	
     rttViewport.rect = IntRect(0,scanLine,320,scanLine+1);
