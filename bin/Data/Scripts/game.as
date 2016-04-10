@@ -24,7 +24,7 @@ void Start()
 	SubscribeToEvent("KeyDown", "HandleKeyDown");
     SubscribeToEvent("Update", "HandleUpdate");
     
-	scene_.LoadXML(cache.GetFile("Scenes/test_scene.xml"));
+	scene_.LoadXML(cache.GetFile("Scenes/level_1.xml"));
 	
 	cameraNode = Node();
 	Node@ camNode = cameraNode.CreateChild("camNode");
