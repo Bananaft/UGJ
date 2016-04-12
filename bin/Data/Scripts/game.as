@@ -203,6 +203,14 @@ void HandleUpdate(StringHash eventType, VariantMap& eventData)
     {
         //renderTexture.SetData(0,0,scanLine-scanSpeed,320,scanSpeed-1,);
     }
-    if (scanLine>botcamRes.y) scanLine=0;
+    if (scanLine>botcamRes.y){
+		scanLine=0;
+		Sound@ sound = cache.GetResource("Sound", "Sounds/screen.wav");
+						SoundSource@ soundSource = botCameraNode.CreateComponent("SoundSource");
+						soundSource.Play(sound);
+						soundSource.gain = 0.3f;
+						soundSource.frequency = 12000;
+						soundSource.autoRemove = true;
+	}
      
 }

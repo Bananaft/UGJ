@@ -7,8 +7,8 @@
 	<attribute name="Elapsed Time" value="0" />
 	<attribute name="Next Replicated Node ID" value="27" />
 	<attribute name="Next Replicated Component ID" value="58" />
-	<attribute name="Next Local Node ID" value="16777256" />
-	<attribute name="Next Local Component ID" value="16777332" />
+	<attribute name="Next Local Node ID" value="16777260" />
+	<attribute name="Next Local Component ID" value="16777380" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="" />
 	<component type="PhysicsWorld" id="1" />
@@ -77,7 +77,7 @@
 			</component>
 		</node>
 		<node id="7">
-			<attribute name="Is Enabled" value="true" />
+			<attribute name="Is Enabled" value="false" />
 			<attribute name="Name" value="l1_building_002" />
 			<attribute name="Position" value="0 0 -7.14785" />
 			<attribute name="Rotation" value="1 0 0 0" />
@@ -97,7 +97,7 @@
 				<attribute name="Physics Position" value="0 7.14785 4.26045e-006" />
 			</component>
 			<node id="8">
-				<attribute name="Is Enabled" value="true" />
+				<attribute name="Is Enabled" value="false" />
 				<attribute name="Name" value="l1_building_004" />
 				<attribute name="Position" value="0 0 7.14785" />
 				<attribute name="Rotation" value="1 0 0 0" />
@@ -111,7 +111,7 @@
 				</component>
 			</node>
 			<node id="9">
-				<attribute name="Is Enabled" value="true" />
+				<attribute name="Is Enabled" value="false" />
 				<attribute name="Name" value="l1_building_011" />
 				<attribute name="Position" value="0 0 7.14785" />
 				<attribute name="Rotation" value="1 0 0 0" />
@@ -125,7 +125,7 @@
 				</component>
 			</node>
 			<node id="10">
-				<attribute name="Is Enabled" value="true" />
+				<attribute name="Is Enabled" value="false" />
 				<attribute name="Name" value="l1_building_012" />
 				<attribute name="Position" value="0 0 7.14785" />
 				<attribute name="Rotation" value="1 0 0 0" />
@@ -139,7 +139,7 @@
 				</component>
 			</node>
 			<node id="11">
-				<attribute name="Is Enabled" value="true" />
+				<attribute name="Is Enabled" value="false" />
 				<attribute name="Name" value="l1_building_015" />
 				<attribute name="Position" value="0 0 7.14785" />
 				<attribute name="Rotation" value="1 0 0 0" />
@@ -694,15 +694,16 @@
 		<node id="16777243">
 			<attribute name="Is Enabled" value="true" />
 			<attribute name="Name" value="" />
-			<attribute name="Position" value="0 3.73486 -18.971" />
+			<attribute name="Position" value="0 2.97798 -18.7179" />
 			<attribute name="Rotation" value="1 0 0 0" />
 			<attribute name="Scale" value="1 1 1" />
 			<attribute name="Variables" />
 			<component type="SoundSource3D" id="16777308">
 				<attribute name="Sound" value="Sound;Sounds/Gray_noise.wav" />
 				<attribute name="Frequency" value="44100" />
-				<attribute name="Gain" value="0.8" />
+				<attribute name="Gain" value="1.5" />
 				<attribute name="Is Playing" value="true" />
+				<attribute name="Near Distance" value="3.03" />
 				<attribute name="Far Distance" value="11.82" />
 				<attribute name="Rolloff Factor" value="5" />
 			</component>
@@ -717,8 +718,8 @@
 			<component type="SoundSource3D" id="16777309">
 				<attribute name="Sound" value="Sound;Sounds/amb_low_whistlesrs.wav" />
 				<attribute name="Frequency" value="44100" />
-				<attribute name="Gain" value="0.8" />
 				<attribute name="Is Playing" value="true" />
+				<attribute name="Near Distance" value="3.43" />
 				<attribute name="Far Distance" value="6.45" />
 				<attribute name="Rolloff Factor" value="3" />
 			</component>
@@ -733,8 +734,8 @@
 			<component type="SoundSource3D" id="16777310">
 				<attribute name="Sound" value="Sound;Sounds/amb_low_whistlesrs.wav" />
 				<attribute name="Frequency" value="44100" />
-				<attribute name="Gain" value="0.8" />
 				<attribute name="Is Playing" value="true" />
+				<attribute name="Near Distance" value="3.73" />
 				<attribute name="Far Distance" value="6.22" />
 				<attribute name="Rolloff Factor" value="3" />
 			</component>
@@ -749,8 +750,9 @@
 			<component type="SoundSource3D" id="16777311">
 				<attribute name="Sound" value="Sound;Sounds/amb_low_01.wav" />
 				<attribute name="Frequency" value="44100" />
-				<attribute name="Gain" value="0.8" />
+				<attribute name="Gain" value="0.2" />
 				<attribute name="Is Playing" value="true" />
+				<attribute name="Near Distance" value="3.59" />
 				<attribute name="Far Distance" value="6.22" />
 				<attribute name="Rolloff Factor" value="3" />
 			</component>
@@ -765,8 +767,9 @@
 			<component type="SoundSource3D" id="16777314">
 				<attribute name="Sound" value="Sound;Sounds/amb_low_01.wav" />
 				<attribute name="Frequency" value="44100" />
-				<attribute name="Gain" value="0.8" />
+				<attribute name="Gain" value="0.2" />
 				<attribute name="Is Playing" value="true" />
+				<attribute name="Near Distance" value="3.53" />
 				<attribute name="Far Distance" value="6.22" />
 				<attribute name="Rolloff Factor" value="3" />
 			</component>
@@ -781,8 +784,9 @@
 			<component type="SoundSource3D" id="16777312">
 				<attribute name="Sound" value="Sound;Sounds/JT65.wav" />
 				<attribute name="Frequency" value="44100" />
-				<attribute name="Gain" value="0.8" />
+				<attribute name="Gain" value="0.6" />
 				<attribute name="Is Playing" value="true" />
+				<attribute name="Near Distance" value="4.92" />
 				<attribute name="Far Distance" value="8.1" />
 				<attribute name="Rolloff Factor" value="3" />
 			</component>
@@ -797,8 +801,9 @@
 			<component type="SoundSource3D" id="16777315">
 				<attribute name="Sound" value="Sound;Sounds/amb_low_01.wav" />
 				<attribute name="Frequency" value="48000" />
-				<attribute name="Gain" value="0.8" />
+				<attribute name="Gain" value="0.2" />
 				<attribute name="Is Playing" value="true" />
+				<attribute name="Near Distance" value="3.17" />
 				<attribute name="Far Distance" value="6.22" />
 				<attribute name="Rolloff Factor" value="3" />
 			</component>
@@ -813,9 +818,10 @@
 			<component type="SoundSource3D" id="16777316">
 				<attribute name="Sound" value="Sound;Sounds/JT65.wav" />
 				<attribute name="Frequency" value="48000" />
-				<attribute name="Gain" value="0.8" />
+				<attribute name="Gain" value="0.6" />
 				<attribute name="Is Playing" value="true" />
 				<attribute name="Play Position" value="16" />
+				<attribute name="Near Distance" value="4.68" />
 				<attribute name="Far Distance" value="8.1" />
 				<attribute name="Rolloff Factor" value="3" />
 			</component>
@@ -830,9 +836,10 @@
 			<component type="SoundSource3D" id="16777317">
 				<attribute name="Sound" value="Sound;Sounds/JT65.wav" />
 				<attribute name="Frequency" value="8000" />
-				<attribute name="Gain" value="0.8" />
+				<attribute name="Gain" value="0.6" />
 				<attribute name="Is Playing" value="true" />
 				<attribute name="Play Position" value="38" />
+				<attribute name="Near Distance" value="4.86" />
 				<attribute name="Far Distance" value="8.1" />
 				<attribute name="Rolloff Factor" value="3" />
 			</component>
@@ -847,7 +854,9 @@
 			<component type="SoundSource3D" id="16777318">
 				<attribute name="Sound" value="Sound;Sounds/XO.wav" />
 				<attribute name="Frequency" value="8000" />
+				<attribute name="Gain" value="0.8" />
 				<attribute name="Is Playing" value="true" />
+				<attribute name="Near Distance" value="4.13" />
 				<attribute name="Far Distance" value="6.45" />
 				<attribute name="Rolloff Factor" value="3" />
 			</component>
@@ -862,8 +871,10 @@
 			<component type="SoundSource3D" id="16777319">
 				<attribute name="Sound" value="Sound;Sounds/XO.wav" />
 				<attribute name="Frequency" value="44100" />
+				<attribute name="Gain" value="0.5" />
 				<attribute name="Is Playing" value="true" />
 				<attribute name="Play Position" value="22" />
+				<attribute name="Near Distance" value="1.43" />
 				<attribute name="Far Distance" value="6.45" />
 				<attribute name="Rolloff Factor" value="3" />
 			</component>

@@ -11,8 +11,16 @@ class bot : ScriptObject
     float suspF = 20;
     float suspCf = 11;
     float friction = 15;
-	
+
 	bool headlight = true;
+	
+	SoundSource@ snd_go;
+	SoundSource@ snd_turn;
+	bool engend = false;
+	bool engturn = false;
+	
+	bool boom = false;
+	
 void Init()
     {
       w1 = node.GetChild("wheel1");
@@ -28,13 +36,24 @@ void Init()
         body.linearDamping = 0.4;
         body.angularDamping = 0.96;
 		SubscribeToEvent("KeyDown", "HandleKeyDown");
+		
+		snd_go = node.CreateComponent("SoundSource");
+		snd_turn = node.CreateComponent("SoundSource");
+		
+		snd_go.autoRemove = false;
+		snd_turn.autoRemove = false;	
+		snd_go.gain = 0.3;
+		snd_turn.gain = 0.1;
+		snd_go.frequency = 44100;
+		snd_turn.frequency = 44100;
+		
     }
 
 void Update(float timeStep)
 	{
 
     }
-	
+
 void HandleKeyDown(StringHash eventType, VariantMap& eventData)
 	{
 		int key = eventData["Key"].GetInt();
@@ -68,7 +87,7 @@ void FixedUpdate(float timeStep)
 
         uint contacts = 0;
 	// and result1.normal.DotProduct(body.rotation * Vector3(0,1,0)) > 0.9
-		if (result1.body !is null) 
+		if (result1.body !is null)
         {
 		w1.position = wheelPos[0] + Vector3(0,-0.3 + suspL + (-1 * result1.distance),0);
           body.ApplyForce(body.rotation * Vector3(0,suspCf + suspF * (suspL - result1.distance),0), result1.position -  body.position);
@@ -100,33 +119,73 @@ void FixedUpdate(float timeStep)
         Vector3 speedVec = body.linearVelocity;
         speedVec = body.rotation.Inverse() * speedVec;
         speedVec.y = 0;
-		
+
 		if (input.keyDown[KEY_UP] or input.keyDown[KEY_W]) targetVel.z=1.2;
         if (input.keyDown[KEY_DOWN] or input.keyDown[KEY_S]) targetVel.z=-1.2;
-	
+
 		if (speedVec.length > 1) speedVec.Normalize();
-		
+
 		Vector3 deltaVec = targetVel-speedVec;
-		
+
 		w1.Rotate(Quaternion(0,0,targetVel.z * -1 * 0.6 * 3.1416));
         w2.Rotate(Quaternion(0,0,targetVel.z * -1 * 0.6 * 3.1416));
         w3.Rotate(Quaternion(0,0,targetVel.z * -1 * 0.6 * 3.1416));
         w4.Rotate(Quaternion(0,0,targetVel.z * -1 * 0.6 * 3.1416));
-		
-		body.ApplyForce(body.rotation * deltaVec * friction * contacts);
 
-		
+		body.ApplyForce(body.rotation * deltaVec * friction * contacts);
         if (contacts > 2)
         {
-               
+
                 if (input.keyDown[KEY_LEFT] or input.keyDown[KEY_A]) body.ApplyTorque(body.rotation * Vector3(0,-12,0));
                 if (input.keyDown[KEY_RIGHT] or input.keyDown[KEY_D])  body.ApplyTorque(body.rotation * Vector3(0,12,0));
-				
+
+		}
+
+		
+		if (input.keyDown[KEY_DOWN] or input.keyDown[KEY_S] or input.keyDown[KEY_UP] or input.keyDown[KEY_W])
+		{
+			if (!engend)
+			{
+			Sound@ go = cache.GetResource("Sound", "Sounds/eng_turn.wav");
+			snd_go.Play(go);
+			engend = true;
+			
+			}
+		} else if (engend){
+			snd_go.Stop();
+			//Sound@ end = cache.GetResource("Sound", "Sounds/eng_end.wav");
+			//snd_go.Play(end);
+			engend = false;
+		}
+		if (input.keyDown[KEY_LEFT] or input.keyDown[KEY_A] or input.keyDown[KEY_RIGHT] or input.keyDown[KEY_D])
+		{
+			if (!engturn)
+			{
+			Sound@ turn = cache.GetResource("Sound", "Sounds/eng_go.wav");
+			snd_turn.Play(turn);
+			engturn = true;
+			}
+		} else if (engturn) {
+			
+			snd_turn.Stop();
+			engturn =false;
 		}
 		
+		if(body.collidingBodies.length>0 and (boom == false))
+		{
+			Sound@ sound = cache.GetResource("Sound", "Sounds/collision.wav");
+						SoundSource@ soundSource = node.CreateComponent("SoundSource");
+						soundSource.Play(sound);
+						soundSource.gain = 0.8f;
+						soundSource.autoRemove = true;
+			boom = true;
+		} 
+		
+		if(body.collidingBodies.length==0)
+		{
+			boom = false;
+		}
 
-
-	
     }
 
 }
