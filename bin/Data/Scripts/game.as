@@ -209,7 +209,7 @@ void HandleUpdate(StringHash eventType, VariantMap& eventData)
 						SoundSource@ soundSource = botCameraNode.CreateComponent("SoundSource");
 						soundSource.Play(sound);
 						soundSource.gain = 0.3f;
-						soundSource.frequency = 12000;
+						soundSource.frequency = 44100;
 						soundSource.autoRemove = true;
 	}
      
