@@ -31,7 +31,7 @@ void Start()
     Camera@ camera = camNode.CreateComponent("Camera");
     //camera.orthographic=true;
 	camera.fov = 20;
-	camera.farClip = 10000;
+	camera.farClip = 12000;
 	
 	
     
@@ -51,7 +51,7 @@ void Start()
     Camera@ botCamera = botCameraNode.CreateComponent("Camera");
     botCamera.fov = botcamFov/botcamRes.y;
     audio.listener = botCameraNode.CreateComponent("SoundListener");
-  
+	botCamera.farClip = 15000;
     renderer.numViewports = 2;
     
   	Viewport@ mainVP = Viewport(scene_, camera);
