@@ -52,16 +52,16 @@ void Start()
     botCamera.fov = botcamFov/botcamRes.y;
     audio.listener = botCameraNode.CreateComponent("SoundListener");
 	botCamera.farClip = 15000;
-    renderer.numViewports = 2;
+    renderer.numViewports = 1;
     
   	Viewport@ mainVP = Viewport(scene_, camera);
 	
 	
 	renderer.viewports[0] = mainVP;
     
-    Viewport@ miniViewport = Viewport(scene_, botCameraNode.GetComponent("Camera"),
-        IntRect(graphics.width * 2 / 3, 32, graphics.width - 32, graphics.height / 3));
-    renderer.viewports[1] = miniViewport;
+    //Viewport@ miniViewport = Viewport(scene_, botCameraNode.GetComponent("Camera"),
+    //    IntRect(graphics.width * 2 / 3, 32, graphics.width - 32, graphics.height / 3));
+    //renderer.viewports[1] = miniViewport;
     
     
     
