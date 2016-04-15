@@ -65,8 +65,6 @@ void Start()
     
     
     
-
-
     // Create a renderable texture (1024x768, RGB format), enable bilinear filtering on it
     renderTexture = Texture2D();
     renderTexture.SetSize(320, 240, GetRGBFormat(), TEXTURE_RENDERTARGET);
