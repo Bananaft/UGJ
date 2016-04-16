@@ -1,18 +1,18 @@
 class door : ScriptObject
 {
 	Vector3 slide;
-	int opentime = 100;
+	float opentime = 100;
 	
 	Vector3 pos;
 	int curtime = 0;
-	bool opp = false;
+	bool opp;
 
 	
 void Open()
 {
-	bool opp = true;
+	opp = true;
 	pos = node.position;
-	log.Info("ok");
+	//log.Info("ok");
 }
 
 
@@ -24,16 +24,38 @@ void FixedUpdate(float timeStep)
 
 		if ((curtime<opentime) and (opp==true))
 		{
-			float lerpidx = 1/(opentime-curtime);
+			float lerpidx = curtime/opentime;
+			
 			node.position = Vector3(Lerp( pos.x , pos.x + slide.x, lerpidx),Lerp( pos.y , pos.y + slide.y, lerpidx),Lerp( pos.z , pos.z + slide.z, lerpidx));
 			curtime ++;
-			log.Info(curtime);
+			//log.Info(lerpidx);
 		}
 		
 		if (input.keyDown[KEY_SPACE])
 		{
 			this.Open();
-			log.Info("opeen");
+			//log.Info("opeen");
+		}
+	}
+}
+
+class key : ScriptObject
+{
+	
+	
+void FixedUpdate(float timeStep)
+	{
+		node.Rotate(Quaternion(0,0,2));
+		RigidBody@ body = node.GetComponent("RigidBody");
+		if(body.collidingBodies.length>0)
+		{
+			
+			door@ myDoor = cast<door>(node.parent.scriptObject);
+			
+			myDoor.Open();
+			
+			node.enabled = false;
+			
 		}
 	}
 }
