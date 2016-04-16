@@ -19,6 +19,9 @@ Text@ uiSpeed;
 Text@ uiBearing;
 Text@ uiTime;
 
+Sprite@ splash;
+Window@ bg;
+
 void Start()
 {
     //log.level = 0;
@@ -181,6 +184,28 @@ void Start()
 	helpText.verticalAlignment = VA_TOP;
 	helpText.SetPosition(0,100);
 	helpText.color = Color(1,1,0.5);;
+	
+	Texture2D@ splashTex = cache.GetResource("Texture2D", "Textures/splash.png");
+	
+	bg = ui.root.CreateChild("Window");
+	bg.color = BLACK;
+	bg.SetSize(graphics.width,graphics.height);
+	
+	splash = Sprite();
+	splash.texture = splashTex;
+	splash.size = IntVector2(1024,768);
+	splash.hotSpot = IntVector2(512, 400);
+	splash.verticalAlignment = VA_CENTER;
+	splash.horizontalAlignment = HA_CENTER;
+	ui.root.AddChild(splash);
+	
+	Sound@ sound = cache.GetResource("Sound", "Sounds/start.wav");
+	SoundSource@ soundSource = scene_.CreateComponent("SoundSource");
+	soundSource.Play(sound);
+	soundSource.gain = 0.9f;
+	soundSource.autoRemove = true;
+	
+	
 }
 
 
@@ -290,5 +315,16 @@ void HandleUpdate(StringHash eventType, VariantMap& eventData)
 						soundSource.frequency = 44100;
 						soundSource.autoRemove = true;
 	}
-     
+	
+	if (time.elapsedTime > 2 and time.elapsedTime< 10)
+	{
+		bg.opacity -= time.timeStep * 0.3;
+		if (time.elapsedTime > 5)
+			splash.opacity -= time.timeStep * 0.3;
+		if (time.elapsedTime > 9)
+		{
+			bg.visible = false;
+			splash.visible = false;
+		}
+    } 
 }
