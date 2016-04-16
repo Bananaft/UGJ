@@ -15,6 +15,10 @@ int scanSpeed = 1;
 float botcamFov = 60;
 IntVector2 botcamRes = IntVector2(320,240);
 
+Text@ uiSpeed;
+Text@ uiBearing;
+Text@ uiTime;
+
 void Start()
 {
     //log.level = 0;
@@ -103,6 +107,80 @@ void Start()
 	
 	renderer.textureFilterMode = FILTER_ANISOTROPIC;
 	renderer.textureAnisotropy = 16;
+	
+	UIElement@ LegendNode = ui.root.CreateChild("UIElement");
+	LegendNode.SetPosition(-630 , 490);
+	LegendNode.horizontalAlignment = HA_RIGHT;
+	LegendNode.verticalAlignment = VA_TOP;
+	
+	Text@ uiSpeedL = LegendNode.CreateChild("Text");
+	uiSpeedL.text = "Speed:";
+	uiSpeedL.SetFont(cache.GetResource("Font", "Fonts/Anonymous Pro.ttf"), 25);
+	uiSpeedL.SetPosition(0 , 0);
+	uiSpeedL.horizontalAlignment = HA_LEFT;
+	uiSpeedL.verticalAlignment = VA_TOP;
+	uiSpeedL.color = Color(1,1,0.5);
+	
+	uiSpeed = uiSpeedL.CreateChild("Text");
+	uiSpeed.text = "50";
+	uiSpeed.SetFont(cache.GetResource("Font", "Fonts/Anonymous Pro.ttf"), 25);
+	uiSpeed.SetPosition(130 , 0);
+	uiSpeed.horizontalAlignment = HA_LEFT;
+	uiSpeed.verticalAlignment = VA_TOP;
+	
+	
+	Text@ uiBearingL = LegendNode.CreateChild("Text");
+	uiBearingL.text = "Bearing:";
+	uiBearingL.SetFont(cache.GetResource("Font", "Fonts/Anonymous Pro.ttf"), 25);
+	uiBearingL.SetPosition(250 , 0);
+	uiBearingL.horizontalAlignment = HA_LEFT;
+	uiBearingL.verticalAlignment = VA_TOP;
+	uiBearingL.color = Color(1,1,0.5);
+	
+	uiBearing = uiBearingL.CreateChild("Text");
+	uiBearing.text = "90";
+	uiBearing.SetFont(cache.GetResource("Font", "Fonts/Anonymous Pro.ttf"), 25);
+	uiBearing.SetPosition(150 , 0);
+	uiBearing.horizontalAlignment = HA_LEFT;
+	uiBearing.verticalAlignment = VA_TOP;
+	
+	Text@ uiTimeL = LegendNode.CreateChild("Text");
+	uiTimeL.text = "Scan mode:";
+	uiTimeL.SetFont(cache.GetResource("Font", "Fonts/Anonymous Pro.ttf"), 25);
+	uiTimeL.SetPosition(0 , 50);
+	uiTimeL.horizontalAlignment = HA_LEFT;
+	uiTimeL.verticalAlignment = VA_TOP;
+	uiTimeL.color = Color(1,1,0.5);
+	
+	uiTime = uiTimeL.CreateChild("Text");
+	uiTime.text = "Progressive";
+	uiTime.SetFont(cache.GetResource("Font", "Fonts/Anonymous Pro.ttf"), 25);
+	uiTime.SetPosition(190 , 0);
+	uiTime.horizontalAlignment = HA_LEFT;
+	uiTime.verticalAlignment = VA_TOP;
+	
+	Text@ helpText = LegendNode.CreateChild("Text");
+	helpText.text =
+					"[Arrows] or [W],[A],[S],[D] - drive rover around.\n \n"
+					"[1],[2],[3],[4] - switch scanning speed.\n\n"
+					"[F] - headlight On/Off.\n\n"
+					"[ESC] - exit.\n\n"
+					"\n"
+					"\n"
+					"\n"
+					"\n"
+					"\n"
+					"\n"
+					"\n"
+					"\n"
+					"\n"
+					"\n";
+
+	helpText.SetFont(cache.GetResource("Font", "Fonts/Anonymous Pro.ttf"), 15);
+	helpText.horizontalAlignment = HA_LEFT;
+	helpText.verticalAlignment = VA_TOP;
+	helpText.SetPosition(0,100);
+	helpText.color = Color(1,1,0.5);;
 }
 
 
@@ -157,20 +235,24 @@ void HandleKeyDown(StringHash eventType, VariantMap& eventData)
      else if (key == KEY_1)
      {
          scanSpeed = 1;
+		 uiTime.text = "Progressive";
      }
        else if (key == KEY_2)
      {
          scanSpeed = 2;
+		 uiTime.text = "1/2";
         
      }
        else if (key == KEY_3)
      {
          scanSpeed = 3;
+		 uiTime.text = "1/3";
        
      }
        else if (key == KEY_4)
      {
          scanSpeed = 4;
+		 uiTime.text = "1/4";
          
      }
 
@@ -180,8 +262,6 @@ void HandleKeyDown(StringHash eventType, VariantMap& eventData)
 void HandleUpdate(StringHash eventType, VariantMap& eventData)
 {
 
-	//cameraNode.position = botCameraNode.worldPosition;
-	
 	
     rttViewport.rect = IntRect(0,scanLine,320,scanLine+1);
     //log.Info(scanLine*(90.0/240.0));

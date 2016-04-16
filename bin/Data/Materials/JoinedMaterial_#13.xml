@@ -1,13 +1,14 @@
 <?xml version="1.0"?>
 <material>
-	<technique name="Techniques/Diff.xml" quality="0" loddistance="0" />
+	<technique name="Techniques/DiffNormal.xml" quality="0" loddistance="0" />
 	<texture unit="diffuse" name="Textures/levels/gravel2.png" />
-	<parameter name="UOffset" value="1 0 0 0" />
-	<parameter name="VOffset" value="0 1 0 0" />
+	<texture unit="normal" name="Textures/levels/grass_nm.png" />
+	<parameter name="UOffset" value="0.5 0 0 0" />
+	<parameter name="VOffset" value="0 0.5 0 0" />
 	<parameter name="MatDiffColor" value="1 0.91 0.98 1" />
 	<parameter name="MatEmissiveColor" value="0 0 0 1" />
 	<parameter name="MatEnvMapColor" value="1 1 1" />
-	<parameter name="MatSpecColor" value="0 0 0 50" />
+	<parameter name="MatSpecColor" value="0.3 0.3 0.3 109.95" />
 	<cull value="ccw" />
 	<shadowcull value="ccw" />
 	<fill value="solid" />

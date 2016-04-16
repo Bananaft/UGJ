@@ -31,11 +31,11 @@ void FixedUpdate(float timeStep)
 			//log.Info(lerpidx);
 		}
 		
-		if (input.keyDown[KEY_SPACE])
-		{
-			this.Open();
-			//log.Info("opeen");
-		}
+		//if (input.keyDown[KEY_SPACE])
+		//{
+		//	this.Open();
+		//	//log.Info("opeen");
+		//}
 	}
 }
 

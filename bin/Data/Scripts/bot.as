@@ -185,6 +185,13 @@ void FixedUpdate(float timeStep)
 		{
 			boom = false;
 		}
+		
+		float spd = body.linearVelocity.length;
+		uiSpeed.text = Floor(spd * 100)/100;
+		
+		float rot = body.rotation.yaw;
+		if (rot<0) rot = 360+rot;
+		uiBearing.text = Floor(rot * 10)/10;
 
     }
 
