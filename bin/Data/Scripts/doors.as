@@ -2,6 +2,7 @@ class door : ScriptObject
 {
 	Vector3 slide;
 	float opentime = 100;
+	bool effectOn = false;
 	
 	Vector3 pos;
 	int curtime = 0;
@@ -13,14 +14,20 @@ void Open()
 	opp = true;
 	pos = node.position;
 	//log.Info("ok");
+	
+	if (effectOn)
+	{
+	Node@ effect = node.GetChild("effect");
+	effect.enabled = true;
+	}
 }
 
 
 void FixedUpdate(float timeStep)
 	{
 		
-		if (opp) log.Info("sukaopen");
-		if (opp==true) log.Info("aaaaa");
+		//if (opp) log.Info("sukaopen");
+		//if (opp==true) log.Info("aaaaa");
 
 		if ((curtime<opentime) and (opp==true))
 		{
@@ -55,6 +62,13 @@ void FixedUpdate(float timeStep)
 			myDoor.Open();
 			
 			node.enabled = false;
+			
+			Sound@ sound = cache.GetResource("Sound", "Sounds/start.wav");
+			SoundSource3D@ soundSource = node.parent.CreateComponent("SoundSource3D");
+			soundSource.Play(sound);
+			soundSource.gain = 0.9f;
+			soundSource.autoRemove = true;
+			
 			
 		}
 	}

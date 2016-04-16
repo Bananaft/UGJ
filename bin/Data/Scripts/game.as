@@ -22,6 +22,8 @@ Text@ uiTime;
 Sprite@ splash;
 Window@ bg;
 
+bool camFly = false;
+
 void Start()
 {
     //log.level = 0;
@@ -43,8 +45,8 @@ void Start()
 	
     
     cameraNode.rotation = Quaternion( 22.5 , -45.0 , 0.0 );
-    camNode.position = Vector3(0.1 * camDistance,0,-1 * camDistance);
-	cameraNode.position = Vector3(-10,0,-10);
+    camNode.position = Vector3(0.1 * camDistance,0.05 * camDistance,-1 * camDistance);
+	cameraNode.position = Vector3(-120,-40,100);
     
     //Node@ botNode = scene_.CreateChild("botNode");
     Node@ botNode = scene_.InstantiateXML(cache.GetResource("XMLFile", "Objects/bot.xml"), Vector3(0,0.0,-50),Quaternion(0,0,0));
@@ -167,8 +169,8 @@ void Start()
 					"[Arrows] or [W],[A],[S],[D] - drive rover around.\n \n"
 					"[1],[2],[3],[4] - switch scanning speed.\n\n"
 					"[F] - headlight On/Off.\n\n"
+					"[F12] - take screenshot.\n\n"
 					"[ESC] - exit.\n\n"
-					"\n"
 					"\n"
 					"\n"
 					"\n"
@@ -302,10 +304,7 @@ void HandleUpdate(StringHash eventType, VariantMap& eventData)
 	
     scanLine+=scanSpeed;
         
-    if (scanSpeed>1)
-    {
-        //renderTexture.SetData(0,0,scanLine-scanSpeed,320,scanSpeed-1,);
-    }
+
     if (scanLine>botcamRes.y){
 		scanLine=0;
 		Sound@ sound = cache.GetResource("Sound", "Sounds/screen.wav");
@@ -327,4 +326,14 @@ void HandleUpdate(StringHash eventType, VariantMap& eventData)
 			splash.visible = false;
 		}
     } 
+	
+	Vector3 deltaVec = cameraNode.position - botCameraNode.worldPosition;
+	if (deltaVec.length> 10) camFly = true;
+	
+	if (camFly)
+	{
+	cameraNode.position += deltaVec * -0.005;
+	
+	if (deltaVec.length< 2) camFly = false;
+	}
 }
