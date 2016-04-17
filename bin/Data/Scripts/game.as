@@ -18,8 +18,10 @@ IntVector2 botcamRes = IntVector2(320,240);
 Text@ uiSpeed;
 Text@ uiBearing;
 Text@ uiTime;
+Camera@ camera;
 
 Sprite@ splash;
+Sprite@ pointer;
 Window@ bg;
 
 bool camFly = false;
@@ -37,7 +39,7 @@ void Start()
 	
 	cameraNode = Node();
 	Node@ camNode = cameraNode.CreateChild("camNode");
-    Camera@ camera = camNode.CreateComponent("Camera");
+    camera = camNode.CreateComponent("Camera");
     //camera.orthographic=true;
 	camera.fov = 20;
 	camera.farClip = 12000;
@@ -187,11 +189,24 @@ void Start()
 	helpText.SetPosition(0,100);
 	helpText.color = Color(1,1,0.5);;
 	
+	
+	Texture2D@ ringTex = cache.GetResource("Texture2D", "Textures/ring.png");
+		
+	pointer = Sprite();
+	pointer.texture = ringTex;
+	pointer.size = IntVector2(128,128);
+	pointer.hotSpot = IntVector2(64, 64);
+	pointer.verticalAlignment = VA_TOP;
+	pointer.horizontalAlignment = HA_LEFT;
+	ui.root.AddChild(pointer);
+	//pointer.visible = false;
+	
 	Texture2D@ splashTex = cache.GetResource("Texture2D", "Textures/splash.png");
 	
 	bg = ui.root.CreateChild("Window");
 	bg.color = BLACK;
 	bg.SetSize(graphics.width,graphics.height);
+	bg.visible = false;
 	
 	splash = Sprite();
 	splash.texture = splashTex;
@@ -200,14 +215,17 @@ void Start()
 	splash.verticalAlignment = VA_CENTER;
 	splash.horizontalAlignment = HA_CENTER;
 	ui.root.AddChild(splash);
+	splash.visible = false;
 	
 	Sound@ sound = cache.GetResource("Sound", "Sounds/start.wav");
 	SoundSource@ soundSource = scene_.CreateComponent("SoundSource");
-	soundSource.Play(sound);
+	//soundSource.Play(sound);
 	soundSource.gain = 0.9f;
 	soundSource.autoRemove = true;
 	
+
 	
+
 }
 
 
@@ -336,4 +354,7 @@ void HandleUpdate(StringHash eventType, VariantMap& eventData)
 	
 	if (deltaVec.length< 2) camFly = false;
 	}
+	
+	
+	pointer.position = Vector2(graphics.width , graphics.height) * camera.WorldToScreenPoint( botCameraNode.worldPosition + Vector3(0,-0.5,0));
 }
