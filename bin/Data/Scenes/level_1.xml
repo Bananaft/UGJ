@@ -7,8 +7,8 @@
 	<attribute name="Elapsed Time" value="0" />
 	<attribute name="Next Replicated Node ID" value="28" />
 	<attribute name="Next Replicated Component ID" value="64" />
-	<attribute name="Next Local Node ID" value="16777292" />
-	<attribute name="Next Local Component ID" value="16777716" />
+	<attribute name="Next Local Node ID" value="16777293" />
+	<attribute name="Next Local Component ID" value="16777728" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="" />
 	<component type="PhysicsWorld" id="1" />
@@ -106,9 +106,11 @@
 				<attribute name="slide" value="0 0 -100" />
 				<attribute name="opentime" value="8000" />
 				<attribute name="effectOn" value="true" />
+				<attribute name="nopointer" value="true" />
 				<attribute name="pos" value="0 0 0" />
 				<attribute name="curtime" value="0" />
 				<attribute name="opp" value="false" />
+				<attribute name="init" value="false" />
 			</component>
 			<node id="8">
 				<attribute name="Is Enabled" value="true" />
@@ -3801,9 +3803,11 @@
 				<attribute name="slide" value="0 -3.9 0" />
 				<attribute name="opentime" value="300" />
 				<attribute name="effectOn" value="false" />
+				<attribute name="nopointer" value="false" />
 				<attribute name="pos" value="0 0 0" />
 				<attribute name="curtime" value="0" />
 				<attribute name="opp" value="false" />
+				<attribute name="init" value="false" />
 			</component>
 			<node id="16777267">
 				<attribute name="Is Enabled" value="true" />
@@ -4434,9 +4438,11 @@
 				<attribute name="slide" value="0 0 2.7" />
 				<attribute name="opentime" value="1500" />
 				<attribute name="effectOn" value="false" />
+				<attribute name="nopointer" value="false" />
 				<attribute name="pos" value="0 0 0" />
 				<attribute name="curtime" value="0" />
 				<attribute name="opp" value="false" />
+				<attribute name="init" value="false" />
 			</component>
 			<node id="16777270">
 				<attribute name="Is Enabled" value="true" />
@@ -4494,9 +4500,11 @@
 				<attribute name="slide" value="-3.9 0 0" />
 				<attribute name="opentime" value="500" />
 				<attribute name="effectOn" value="false" />
+				<attribute name="nopointer" value="false" />
 				<attribute name="pos" value="0 0 0" />
 				<attribute name="curtime" value="0" />
 				<attribute name="opp" value="false" />
+				<attribute name="init" value="false" />
 			</component>
 			<node id="16777271">
 				<attribute name="Is Enabled" value="true" />

@@ -206,7 +206,7 @@ void Start()
 	bg = ui.root.CreateChild("Window");
 	bg.color = BLACK;
 	bg.SetSize(graphics.width,graphics.height);
-	bg.visible = false;
+	//bg.visible = false;
 	
 	splash = Sprite();
 	splash.texture = splashTex;
@@ -215,11 +215,11 @@ void Start()
 	splash.verticalAlignment = VA_CENTER;
 	splash.horizontalAlignment = HA_CENTER;
 	ui.root.AddChild(splash);
-	splash.visible = false;
+	//splash.visible = false;
 	
 	Sound@ sound = cache.GetResource("Sound", "Sounds/start.wav");
 	SoundSource@ soundSource = scene_.CreateComponent("SoundSource");
-	//soundSource.Play(sound);
+	soundSource.Play(sound);
 	soundSource.gain = 0.9f;
 	soundSource.autoRemove = true;
 	
@@ -345,7 +345,8 @@ void HandleUpdate(StringHash eventType, VariantMap& eventData)
 		}
     } 
 	
-	Vector3 deltaVec = cameraNode.position - botCameraNode.worldPosition;
+	Vector3 pos = botCameraNode.worldPosition;
+	Vector3 deltaVec = cameraNode.position - pos;
 	if (deltaVec.length> 10) camFly = true;
 	
 	if (camFly)
@@ -356,5 +357,8 @@ void HandleUpdate(StringHash eventType, VariantMap& eventData)
 	}
 	
 	
-	pointer.position = Vector2(graphics.width , graphics.height) * camera.WorldToScreenPoint( botCameraNode.worldPosition + Vector3(0,-0.5,0));
+	pointer.position = Vector2(graphics.width , graphics.height) * camera.WorldToScreenPoint( pos + Vector3(0,-0.5,0));
+	
+	//log.Info(pos.y);
+	if (-15<pos.x and pos.x<15 and -15<pos.z and pos.z<15) pointer.visible = true; else pointer.visible = false;
 }
