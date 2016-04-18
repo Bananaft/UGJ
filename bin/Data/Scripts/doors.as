@@ -62,8 +62,8 @@ void FixedUpdate(float timeStep)
 					 winspl.texture = winspltex;
 					 winspl.size = IntVector2(1024,256);
 					 winspl.hotSpot = IntVector2(512, 128);
-					 winspl.verticalAlignment = VA_TOP;
-					 winspl.horizontalAlignment = HA_LEFT;
+					 winspl.verticalAlignment = VA_CENTER;
+					 winspl.horizontalAlignment = HA_CENTER;
 					ui.root.AddChild( winspl);
 					 winspl.visible = false;
 					 winspl.opacity = 0.99;
@@ -96,11 +96,22 @@ void FixedUpdate(float timeStep)
 			}
 			if (win){
 				winspl.visible = true;
+				winspl.position = Vector2(RandomInt(-20,20),RandomInt(-20,20)); 
+				if (curtime>200)
+				{
+					 winspl.visible = false;
+				}
 			}
 			
 		}else {
 			door_pointer.visible = false;
 			if (win) winspl.visible = false;
+			
+				if (effectOn)
+				{
+				Node@ effect = node.GetChild("effect");
+				effect.enabled = false;
+				}
 			
 		}
 		
@@ -132,12 +143,12 @@ void FixedUpdate(float timeStep)
 			
 			node.enabled = false;
 			
-			Sound@ sound = cache.GetResource("Sound", "Sounds/start.wav");
-			SoundSource3D@ soundSource = node.parent.CreateComponent("SoundSource3D");
-			soundSource.Play(sound);
-			soundSource.gain = 0.9f;
-			soundSource.autoRemove = true;
-			
+//			Sound@ sound = cache.GetResource("Sound", "Sounds/start.wav");
+//			SoundSource3D@ soundSource = node.parent.CreateComponent("SoundSource3D");
+//			soundSource.Play(sound);
+//			soundSource.gain = 0.9f;
+//			soundSource.autoRemove = true;
+//			
 
 			
 		} 
