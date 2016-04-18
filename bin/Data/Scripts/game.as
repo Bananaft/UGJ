@@ -199,6 +199,7 @@ void Start()
 	pointer.verticalAlignment = VA_TOP;
 	pointer.horizontalAlignment = HA_LEFT;
 	ui.root.AddChild(pointer);
+	pointer.opacity = 0.99;
 	//pointer.visible = false;
 	
 	Texture2D@ splashTex = cache.GetResource("Texture2D", "Textures/splash.png");
@@ -206,6 +207,7 @@ void Start()
 	bg = ui.root.CreateChild("Window");
 	bg.color = BLACK;
 	bg.SetSize(graphics.width,graphics.height);
+	//bg.opacity = 0.5;
 	//bg.visible = false;
 	
 	splash = Sprite();
@@ -215,6 +217,7 @@ void Start()
 	splash.verticalAlignment = VA_CENTER;
 	splash.horizontalAlignment = HA_CENTER;
 	ui.root.AddChild(splash);
+	splash.opacity = 0.99;
 	//splash.visible = false;
 	
 	Sound@ sound = cache.GetResource("Sound", "Sounds/start.wav");
