@@ -7,8 +7,8 @@
 	<attribute name="Elapsed Time" value="0" />
 	<attribute name="Next Replicated Node ID" value="28" />
 	<attribute name="Next Replicated Component ID" value="64" />
-	<attribute name="Next Local Node ID" value="16777293" />
-	<attribute name="Next Local Component ID" value="16777728" />
+	<attribute name="Next Local Node ID" value="16777294" />
+	<attribute name="Next Local Component ID" value="16777740" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="" />
 	<component type="PhysicsWorld" id="1" />
@@ -107,6 +107,7 @@
 				<attribute name="opentime" value="8000" />
 				<attribute name="effectOn" value="true" />
 				<attribute name="nopointer" value="true" />
+				<attribute name="win" value="true" />
 				<attribute name="pos" value="0 0 0" />
 				<attribute name="curtime" value="0" />
 				<attribute name="opp" value="false" />
@@ -3804,6 +3805,7 @@
 				<attribute name="opentime" value="300" />
 				<attribute name="effectOn" value="false" />
 				<attribute name="nopointer" value="false" />
+				<attribute name="win" value="false" />
 				<attribute name="pos" value="0 0 0" />
 				<attribute name="curtime" value="0" />
 				<attribute name="opp" value="false" />
@@ -4439,6 +4441,7 @@
 				<attribute name="opentime" value="1500" />
 				<attribute name="effectOn" value="false" />
 				<attribute name="nopointer" value="false" />
+				<attribute name="win" value="false" />
 				<attribute name="pos" value="0 0 0" />
 				<attribute name="curtime" value="0" />
 				<attribute name="opp" value="false" />
@@ -4501,6 +4504,7 @@
 				<attribute name="opentime" value="500" />
 				<attribute name="effectOn" value="false" />
 				<attribute name="nopointer" value="false" />
+				<attribute name="win" value="false" />
 				<attribute name="pos" value="0 0 0" />
 				<attribute name="curtime" value="0" />
 				<attribute name="opp" value="false" />

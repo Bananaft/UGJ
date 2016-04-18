@@ -4,12 +4,14 @@ class door : ScriptObject
 	float opentime = 100;
 	bool effectOn = false;
 	bool nopointer = false;
+	bool win = false;
 	
 	Vector3 pos;
 	int curtime = 0;
 	bool opp;
 	
 	Sprite@ door_pointer;
+	Sprite@ winspl;
 	bool init = false;
 	
 
@@ -38,7 +40,7 @@ void FixedUpdate(float timeStep)
 	{
 		if (init == false)
 		{
-				Texture2D@ ringTex = cache.GetResource("Texture2D", "Textures/ring.png");
+				Texture2D@ ringTex = cache.GetResource("Texture2D", "Textures/ring_blue.png");
 				
 				door_pointer = Sprite();
 				door_pointer.texture = ringTex;
@@ -48,8 +50,26 @@ void FixedUpdate(float timeStep)
 				door_pointer.horizontalAlignment = HA_LEFT;
 				ui.root.AddChild(door_pointer);
 				door_pointer.visible = false;
-				init = true;
+				door_pointer.opacity = 0.99;
+				
 				log.Info("door_pointer_init");
+				
+				if (win)
+				{
+					Texture2D@ winspltex = cache.GetResource("Texture2D", "Textures/winsplash.png");
+					
+					 winspl = Sprite();
+					 winspl.texture = winspltex;
+					 winspl.size = IntVector2(1024,256);
+					 winspl.hotSpot = IntVector2(512, 128);
+					 winspl.verticalAlignment = VA_TOP;
+					 winspl.horizontalAlignment = HA_LEFT;
+					ui.root.AddChild( winspl);
+					 winspl.visible = false;
+					 winspl.opacity = 0.99;
+				}
+				
+				init = true;
 		}
 		//if (opp) log.Info("sukaopen");
 		//if (opp==true) log.Info("aaaaa");
@@ -70,20 +90,27 @@ void FixedUpdate(float timeStep)
 				float size = 64 * (2+ Sin(time.elapsedTime * 500));
 				door_pointer.size = IntVector2(size,size);
 				door_pointer.hotSpot = IntVector2(size/2,size/2);
+				
+			
 			
 			}
+			if (win){
+				winspl.visible = true;
+			}
+			
 		}else {
 			door_pointer.visible = false;
+			if (win) winspl.visible = false;
 			
 		}
 		
-		
+	
 		//if (input.keyDown[KEY_SPACE])
 		//{
 		//	this.Open();
 		//	//log.Info("opeen");
 		//}
-	}
+	} 
 }
 
 class key : ScriptObject
